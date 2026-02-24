@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie Recorrente de 30 Dias - Sucesso na Confeitaria</title>
+    <meta name="description"
+        content="Aprenda a fazer o Cookie Estilo Nova York que dura 30 dias e transforme sua confeitaria com clientes recorrentes.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Open+Sans:wght@400;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-main: #FEFEFE;
+            --bg-auth: #1B2951;
+            --col-cta: #28A745;
+            --col-cta-hover: #218838;
+            --col-urg: #8B1538;
+            --col-gold: #D4A574;
+            --text-main: #2C3E50;
+            --text-light: #FFFFFF;
+            --font-head: 'Montserrat', sans-serif;
+            --font-body: 'Open Sans', sans-serif;
+            --gap-section: 40px;
+        }
+
+        /* Reset & Base */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text-main);
+            background-color: var(--bg-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Typography */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: var(--font-head);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 900;
+        }
+
+        h2 {
+            font-size: 2rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .text-white {
+            color: var(--text-light);
+        }
+
+        .text-gold {
+            color: var(--col-gold);
+        }
+
+        .text-blue {
+            color: var(--bg-auth);
+        }
+
+        .text-urgency {
+            color: var(--col-urg);
+            font-weight: bold;
+        }
+
+        /* Layout */
+        .container {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: var(--gap-section) 0;
+        }
+
+        /* Desktop section spacing */
+        @media (min-width: 768px) {
+            .section {
+                padding: 60px 0;
+            }
+        }
+
+        .bg-blue {
+            background-color: var(--bg-auth);
+            color: var(--text-light);
+        }
+
+        .bg-white {
+            background-color: var(--bg-main);
+        }
+
+        .bg-urgency {
+            background-color: var(--col-urg);
+            color: var(--text-light);
+        }
+
+        /* Components */
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            font-family: var(--font-head);
+            font-weight: 900;
+            text-transform: uppercase;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            border: none;
+            font-size: 1.2rem;
+        }
+
+        .btn-cta {
+            background-color: var(--col-cta);
+            color: #fff;
+            animation: pulse 2s infinite;
+        }
+
+        .btn-cta:hover {
+            background-color: var(--col-cta-hover);
+            transform: scale(1.05);
+        }
+
+        .btn-gold {
+            background-color: var(--col-gold);
+            color: #fff;
+            color: var(--bg-auth);
+        }
+
+        .btn-gold:hover {
+            background-color: #c09060;
+        }
+
+        .btn-large {
+            font-size: 1.5rem;
+            padding: 20px 40px;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            padding: 30px;
+            margin-bottom: 20px;
+        }
+
+        /* Specific Sections */
+
+        /* 1. Banner Urgência */
+        #banner-urgencia {
+            background-color: var(--col-urg);
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        body {
+            padding-top: 40px;
+        }
+
+        /* Space for fixed banner */
+
+        /* 2. Logo/Título */
+        .header-logo {
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* 3. Hero */
+        .hero-section {
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .hero-headline {
+            font-size: 1.8rem;
+            /* Mobile first */
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .hero-sub {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .hero-img-placeholder {
+            width: 100%;
+            height: 300px;
+            background: #444;
+            /* Placeholder color */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 30px auto;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .hero-img-placeholder::after {
+            content: "Imagem: Cookie NY Gigante";
+            color: #fff;
+            font-weight: bold;
+        }
+
+        /* 5. Tabela */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            background: #fff;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+
+        .comparison-table th {
+            background: #f8f9fa;
+            color: var(--bg-auth);
+        }
+
+        .comparison-table .col-highlight {
+            background: var(--bg-auth);
+            color: #fff;
+            position: relative;
+        }
+
+        .comparison-table .col-highlight::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border: 2px solid var(--col-gold);
+            pointer-events: none;
+        }
+
+        .check-mark {
+            color: var(--col-cta);
+            font-weight: bold;
+        }
+
+        /* 8. Grid Sabores */
+        .flavors-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .flavor-card {
+            border: 1px solid #eee;
+            padding: 20px;
+            border-radius: 8px;
+            background: #f9f9f9;
+            transition: transform 0.2s;
+        }
+
+        .flavor-card:hover {
+            transform: translateY(-5px);
+            background: #fff;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .flavor-title {
+            color: var(--bg-auth);
+            font-weight: 700;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .flavor-margin {
+            color: var(--col-cta);
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        /* 9. Matemática */
+        .math-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .math-card {
+            background: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            border-top: 5px solid var(--col-gold);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .math-highlight {
+            font-size: 1.5rem;
+            color: var(--col-cta);
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        /* 11. Bônus */
+        .bonus-section {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .bonus-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .bonus-card {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            gap: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .bonus-image {
+            flex: 0 0 300px;
+            text-align: center;
+        }
+
+        .bonus-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .bonus-text {
+            flex: 1;
+            color: white;
+        }
+
+        .bonus-text h3 {
+            color: #fff;
+        }
+
+        .bonus-text p {
+            color: #fff;
+        }
+
+        .bonus-text ul {
+            color: #fff;
+        }
+
+        /* Bonus cards mobile */
+        @media (max-width: 768px) {
+            .bonus-card {
+                flex-direction: column;
+                text-align: center;
+                margin-bottom: 0;
+                padding: 20px;
+            }
+
+            .bonus-image {
+                flex: none;
+                margin-bottom: 20px;
+            }
+
+            .bonus-grid {
+                gap: 30px;
+            }
+        }
+
+        /* Pergunta destaque */
+        .pergunta-destaque {
+            font-family: var(--font-head);
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #D4A574;
+            margin: 30px 0;
+            text-align: center;
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .pergunta-destaque {
+                font-size: 1.25rem;
+                margin: 25px 0;
+            }
+        }
+
+        /* 12. Oferta Preço */
+        .price-box {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px 20px;
+            border-radius: 15px;
+            border: 2px solid var(--col-gold);
+            margin: 40px 0;
+        }
+
+        .price-strike {
+            text-decoration: line-through;
+            opacity: 0.7;
+            font-size: 1.2rem;
+        }
+
+        .price-final {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--col-gold);
+            line-height: 1;
+            margin: 20px 0;
+        }
+
+        .price-small {
+            font-size: 1.2rem;
+            font-weight: normal;
+            color: #fff;
+        }
+
+        /* 14. FAQ */
+        .faq-item {
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            width: 100%;
+            text-align: left;
+            padding: 15px;
+            background: #f9f9f9;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            padding: 0 15px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            background: #fff;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 15px;
+            max-height: 500px;
+        }
+
+        .faq-icon {
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        /* Animations */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.7);
+            }
+
+            70% {
+                transform: scale(1.05);
+                box-shadow: 0 0 0 10px rgba(40, 167, 69, 0);
+            }
+
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(40, 167, 69, 0);
+            }
+        }
+
+        /* Desktop Queries */
+        @media (min-width: 768px) {
+            h1 {
+                font-size: 3.5rem;
+            }
+
+            .hero-headline {
+                font-size: 3rem;
+            }
+
+            .flavors-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .math-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .bonus-grid {
+                gap: 40px;
+            }
+
+            .hero-img-placeholder {
+                height: 500px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- SEÇÃO 1: BANNER URGÊNCIA -->
+    <div id="banner-urgencia">
+        ⚠️ NÃO FECHE ESTA PÁGINA! Este é o único lugar com o desconto especial de lançamento.
+    </div>
+
+    <!-- SEÇÃO 2: LOGO/TÍTULO -->
+    <header class="section bg-blue text-center header-logo">
+        <div class="container">
+            <h2 style="margin:0; font-size: 1.5rem;">🍪 COOKIE RECORRENTE DE 30 DIAS</h2>
+            <p style="margin:0; opacity: 0.8; font-size: 0.9rem;">O Cookie Estilo Nova York que Transforma Você em
+                Confeiteira Profissional</p>
+        </div>
+    </header>
+
+    <!-- SEÇÃO 3: HEADLINE MAGNÉTICA -->
+    <section class="section bg-blue hero-section">
+        <div class="container">
+            <h1 class="hero-headline text-white">AS RECEITAS SECRETAS QUE CONFEITARIAS DE NOVA YORK USAM HÁ 30 ANOS PARA
+                TER <span style="color: var(--col-gold);">CLIENTES FIÉIS</span></h1>
+            <h3 class="text-gold" style="margin-bottom: 20px;">(E Como Você Pode Ser a ÚNICA a Copiá-la Para Ter <span
+                    style="background-color: #FEFEFE; color: var(--text-main); padding: 0 5px;">Renda Previsível</span>
+                Todo Mês)</h3>
+            <p class="hero-sub text-white">Aprenda a fazer o <strong style="color: var(--col-gold);">Cookie Estilo Nova
+                    York</strong> que duram <strong style="color: var(--col-gold);">30 dias de validade</strong> e
+                transforma você em fornecedora profissional com <strong>clientes recorrentes</strong> (mesmo que você
+                nunca tenha feito um cookie na vida)</p>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 4: BENEFÍCIO CENTRAL -->
+    <section class="section bg-white">
+        <div class="container">
+            <h2 class="text-center text-blue">Cookies com 30 dias de validade!</h2>
+            <div style="max-width: 800px; margin: 0 auto; font-size: 1.1rem;">
+                <p>Você aprenderá 10 receitas dos Cookies Estilo Nova York mais vendidos no Brasil — aqueles cookies
+                    GIGANTES, crocantes por fora e macios por dentro — com validade de 30 dias.</p>
+                <p><strong>E o melhor: mantendo o sabor, textura e aroma de recém-saído do forno!</strong></p>
+                <br>
+                <h3 class="pergunta-destaque">"Ok, Giovanna, mas por que eu iria querer um cookie com 30 dias de
+                    validade?"</h3>
+                <p>Ótima pergunta!</p>
+                <p>Veja bem...</p>
+                <p>Isso aqui não é um cursinho de receitas de cookie.</p>
+                <p>Isso aqui é um sistema completo para você sair do modelo esgotante de encomendas pontuais...</p>
+                <p>...e entrar no modelo profissional de confeitaria recorrente, vendendo TODO DIA para clientes fixos —
+                    onde você APENAS precisa passar nesses locais, fazer a reposição e receber seu dinheiro.</p>
+                <p>Para que isso aconteça de forma fluida, você precisa de um produto Exclusivo com validade estendida.
+                </p>
+                <p>E o Cookie Estilo Nova York de 30 dias é exatamente isso.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 5: TABELA COMPARATIVA -->
+    <section class="section bg-white" style="padding-top: 0;">
+        <div class="container">
+            <h2 class="text-center text-blue">A TABELA QUE VAI ABRIR SEUS OLHOS</h2>
+            <p class="text-center" style="max-width: 800px; margin: 0 auto 30px;">Por Que Cookie Estilo NY é a Escolha
+                Mais Inteligente Para Quem Quer Clientes Recorrentes?</p>
+
+            <div style="overflow-x: auto;">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>CRITÉRIO</th>
+                            <th>BRIGADEIRO</th>
+                            <th>PALHA</th>
+                            <th>BROWNIE</th>
+                            <th class="col-highlight">COOKIE NY</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Validade</td>
+                            <td>3-5 dias</td>
+                            <td>30 dias</td>
+                            <td>5-7 dias</td>
+                            <td class="col-highlight">30 DIAS <span class="check-mark">✅</span></td>
+                        </tr>
+                        <tr>
+                            <td>Tamanho</td>
+                            <td>15-20g</td>
+                            <td>30-40g</td>
+                            <td>50-70g</td>
+                            <td class="col-highlight">120-150g <span class="check-mark">✅ (MAIOR)</span></td>
+                        </tr>
+                        <tr>
+                            <td>Preço Venda</td>
+                            <td>R$ 2,50</td>
+                            <td>R$ 6-8</td>
+                            <td>R$ 8-10</td>
+                            <td class="col-highlight">R$ 10-15 <span class="check-mark">✅ (MAIOR)</span></td>
+                        </tr>
+                        <tr>
+                            <td>Custo Prod.</td>
+                            <td>R$ 0,80</td>
+                            <td>R$ 2,50</td>
+                            <td>R$ 3,00</td>
+                            <td class="col-highlight">R$ 3,00-3,50</td>
+                        </tr>
+                        <tr>
+                            <td>MARGEM</td>
+                            <td>68%</td>
+                            <td>69%</td>
+                            <td>70%</td>
+                            <td class="col-highlight">75-80% <span class="check-mark">✅ (MELHOR)</span></td>
+                        </tr>
+                        <tr>
+                            <td>Exclusivid.</td>
+                            <td>SATURADO</td>
+                            <td>Média</td>
+                            <td>Média</td>
+                            <td class="col-highlight">ALTÍSSIMA <span class="check-mark">✅</span></td>
+                        </tr>
+                        <tr>
+                            <td>Revenda</td>
+                            <td>Difícil</td>
+                            <td>Boa</td>
+                            <td>Média</td>
+                            <td class="col-highlight">IDEAL <span class="check-mark">✅</span></td>
+                        </tr>
+                        <tr>
+                            <td>Percepção</td>
+                            <td>"Docinho"</td>
+                            <td>"Doce"</td>
+                            <td>"Bolo"</td>
+                            <td class="col-highlight">"PREMIUM" <span class="check-mark">✅</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="text-center" style="max-width: 800px; margin: 40px auto 0;">
+                <p>Viu a diferença? Cookie NY não compete com brigadeiro ou palha.</p>
+                <p style="margin-top: 20px;">Cookie NY está em outro patamar.</p>
+                <h3 class="text-blue" style="margin-top: 40px;">🌎 E Tem Mais: Cookie NY é TENDÊNCIA GLOBAL</h3>
+                <p>Enquanto brigadeiro, palha e brownie são "tradicionais brasileiros"... <strong>Cookie Estilo Nova
+                        York é uma febre mundial.</strong></p>
+                <p>Sabe a Levain Bakery em Nova York? Vende APENAS cookies desde 1995 e tem fila na porta TODOS OS DIAS.
+                </p>
+                <p>Sabe a Mr. Cheney aqui no Brasil? Expandiu para dezenas de lojas vendendo... cookies gigantes estilo
+                    NY.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 6: SEGMENTAÇÃO -->
+    <section class="section bg-white" style="background: #f4f6f9;">
+        <div class="container">
+            <h2 class="text-center text-blue">SERÁ QUE COOKIE RECORRENTE DE 30 DIAS É PARA VOCÊ?</h2>
+            <p class="text-center">Esse método foi pensado milimetricamente para quem:</p>
+
+            <div class="flavors-grid" style="margin-top: 40px;">
+                <div class="card">
+                    <div class="text-center" style="font-size: 2rem; margin-bottom: 10px;">🎯</div>
+                    <h3 class="text-blue">NUNCA FEZ UM COOKIE NA VIDA</h3>
+                    <p>As receitas estão explicadas passo a passo, com medidas exatas e fotos de cada etapa. Se você já
+                        fez um bolo de caixinha, você consegue fazer Cookie NY.</p>
+                </div>
+                <div class="card">
+                    <div class="text-center" style="font-size: 2rem; margin-bottom: 10px;">🚪</div>
+                    <h3 class="text-blue">JÁ VENDE DOCES PORTA A PORTA</h3>
+                    <p>E está CANSADA da <strong style="color: var(--col-urg);">montanha-russa financeira</strong> (mês
+                        bom/mês ruim), querendo migrar para o modelo de clientes fixos e renda previsível.</p>
+                </div>
+                <div class="card">
+                    <div class="text-center" style="font-size: 2rem; margin-bottom: 10px;">🏪</div>
+                    <h3 class="text-blue">JÁ FORNECE EM PONTOS</h3>
+                    <p>E quer adicionar um produto <strong>PREMIUM</strong> ao seu mix — algo que nenhum concorrente tem
+                        e que seus clientes vão AMAR.</p>
+                </div>
+                <div class="card">
+                    <div class="text-center" style="font-size: 2rem; margin-bottom: 10px;">🍪</div>
+                    <h3 class="text-blue">JÁ FAZ COOKIES CASEIROS</h3>
+                    <p>Mas seus cookies duram 3-5 dias, o que dificulta revenda... e você quer aprender a técnica
+                        profissional de <strong style="color: var(--col-gold);">30 dias de validade</strong>.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 7: SISTEMA TRIPLA -->
+    <section class="section bg-blue">
+        <div class="container text-white">
+            <h2 class="text-center text-gold">O Segredo Dos 30 Dias: Sistema de Estabilização Tripla™</h2>
+            <p class="text-center" style="max-width: 800px; margin: 0 auto 40px;">Você deve estar se perguntando: "Tá,
+                mas como um cookie ARTESANAL dura 30 dias sem perder qualidade?". A resposta está no método que
+                confeitarias profissionais usam.</p>
+
+            <div class="math-grid">
+                <div class="card" style="color: var(--text-main);">
+                    <h3 class="text-blue">PILAR #1 - Controle de Umidade™</h3>
+                    <p>A maioria dos cookies estraga porque absorve umidade do ar. Eu descobri uma técnica francesa que
+                        sela a umidade DENTRO do cookie, mantendo a casca crocante e o interior macio por 30 dias.</p>
+                </div>
+                <div class="card" style="color: var(--text-main);">
+                    <h3 class="text-blue">PILAR #2 - Ingrediente Especial™</h3>
+                    <p>Um dos ingredientes (que você JÁ tem na sua cozinha) que, quando adicionado na proporção exata,
+                        age como conservante NATURAL.<br>
+                        Sem química.<br>
+                        Esse ingrediente sozinho adiciona +15 dias de vida útil ao cookie.</p>
+                </div>
+                <div class="card" style="color: var(--text-main);">
+                    <h3 class="text-blue">PILAR #3 - Controle de Oxigênio™</h3>
+                    <p>Um método específico e barato de embalagem que controla o vilão da oxidação. O cookie mantém o
+                        aroma, não absorve cheiros e fica protegido. +7 dias de validade.</p>
+                </div>
+            </div>
+
+            <div class="text-center" style="margin-top: 40px;">
+                <h3 class="text-gold">RESULTADO: 30 DIAS DE VALIDADE</h3>
+                <p>Mantendo textura crocante + sabor + aroma.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 8: GRID 10 SABORES -->
+    <section class="section bg-white">
+        <div class="container">
+            <h2 class="text-center text-blue">VEJA OS 10 SABORES DE COOKIE ESTILO NY QUE VOCÊ VAI DOMINAR:</h2>
+            <p class="text-center">São os 10 cookies que MAIS VENDEM no Brasil e EUA.</p>
+
+            <div class="flavors-grid" style="margin-top: 40px;">
+                <!-- 01 -->
+                <div class="flavor-card">
+                    <div class="flavor-title">01 - CHOCOLATE CHIPS (O Clássico) 🍪</div>
+                    <p>Base amanteigada com gotas de chocolate. O #1 em vendas.</p>
+                    <p><strong>Por que vende:</strong> É o #1 em vendas na rede Mr. Cheney no Brasil. Sabor universal
+                        que agrada 90% das pessoas. Presença obrigatória em qualquer cardápio.</p>
+                    <div class="flavor-margin">Margem: ~78%</div>
+                </div>
+                <!-- 02 -->
+                <div class="flavor-card">
+                    <div class="flavor-title">02 - TRIPLE CHOCOLATE 🍫🍫🍫</div>
+                    <p>Massa de chocolate + meio amargo + branco. Explosão de sabor.</p>
+                    <p><strong>Por que vende:</strong> 2º sabor mais vendido em cookies americanos no Brasil.
+                        Chocólatras são 40% do público — e eles pagam MAIS por intensidade de sabor.</p>
+                    <div class="flavor-margin">Margem: ~76%</div>
+                </div>
+                <!-- 03 -->
+                <div class="flavor-card">
+                    <div class="flavor-title">03 - CHOCOLATE CHIPS COM M&M'S 🌈</div>
+                    <p>Sucesso absoluto entre crianças e adolescentes. Visual lúdico.</p>
+                    <p><strong>Por que vende:</strong> Top 5 da Mr. Cheney. Sucesso absoluto entre
+                        crianças/adolescentes. Aparência lúdica que "vende sozinha" no balcão.</p>
+                    <div class="flavor-margin">Margem: ~75%</div>
+                </div>
+                <!-- 04 -->
+                <div class="flavor-card">
+                    <div class="flavor-title">04 - DOUBLE CHOCOLATE 🍫🍫</div>
+                    <p>Mais intenso que o clássico. Para público adulto e sofisticado.</p>
+                    <p><strong>Por que vende:</strong> Top 5 nos cardápios gourmet. Público adulto e sofisticado prefere
+                        versões mais intensas.</p>
+                    <div class="flavor-margin">Margem: ~77%</div>
+                </div>
+                <!-- 05 -->
+                <div class="flavor-card">
+                    <div class="flavor-title">05 - WHITE CHOCOLATE CHIPS 🤍</div>
+                    <p>Perfil doce e delicado. Ideal para combos e presentes.</p>
+                    <p><strong>Por que vende:</strong> Perfil doce e delicado. Ideal para combos e boxes presenteáveis.
+                        Agrada quem não curte chocolate amargo.</p>
+                    <div class="flavor-margin">Margem: ~76%</div>
+                </div>
+                <!-- 06 -->
+                <div class="flavor-card">
+                    <div class="flavor-title">06 - RED VELVET ❤️</div>
+                    <p>Sabor GOURMET, justifica preço 30% maior. Fotogênico.</p>
+                    <p><strong>Por que vende:</strong> Sabor GOURMET que justifica preço 30% mais alto. Extremamente
+                        fotogênico (bomba no Instagram). Essencial em menus premium.</p>
+                    <div class="flavor-margin">Margem: ~74% | Premium</div>
+                </div>
+                <!-- 07 -->
+                <div class="flavor-card">
+                    <div class="flavor-title">07 - COOKIES & CREAM (Oreo) 🖤🤍</div>
+                    <p>Sabor nostálgico que famílias amam. Textura única.</p>
+                    <p><strong>Por que vende:</strong> Sabor nostálgico que adolescentes e famílias AMAM. Textura única
+                        (crocante do Oreo + cremoso do cookie).</p>
+                    <div class="flavor-margin">Margem: ~73%</div>
+                </div>
+                <!-- 08 -->
+                <div class="flavor-card">
+                    <div class="flavor-title">08 - BRIGADEIRO (Brasileiro) 🇧🇷</div>
+                    <p>Cookie americano + Brigadeiro. Apelo cultural fortíssimo.</p>
+                    <p><strong>Por que vende:</strong> Combina dois ícones: Cookie americano + Brigadeiro brasileiro.
+                        Forte apelo emocional e cultural.</p>
+                    <div class="flavor-margin">Margem: ~77%</div>
+                </div>
+                <!-- 09 -->
+                <div class="flavor-card">
+                    <div class="flavor-title">09 - PISTACHE C/ CHOCOLATE BRANCO 💚</div>
+                    <p>Cookie SUPER PREMIUM. Justifica preços de R$ 15-20.</p>
+                    <p><strong>Por que vende:</strong> Cookie PREMIUM que justifica os maiores preços (R$ 15-20).
+                        Visualmente impactante. Muito usado em datas especiais e presentes corporativos.</p>
+                    <div class="flavor-margin">Margem: ~70% | Premium</div>
+                </div>
+                <!-- 10 -->
+                <div class="flavor-card">
+                    <div class="flavor-title">10 - DOCE DE LEITE & CANELA (Churros) 🍮</div>
+                    <p>Sobremesa nostálgica. Para quem ama doces intensos.</p>
+                    <p><strong>Por que vende:</strong> Combina sabores brasileiros clássicos. Sensação de sobremesa
+                        nostálgica. Perfeito para público que adora doces intensos.</p>
+                    <div class="flavor-margin">Margem: ~76%</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 9: MATEMÁTICA 3 CENÁRIOS -->
+    <section class="section bg-white" style="background: #fcfcfc;">
+        <div class="container">
+            <h2 class="text-center text-blue">⚡ A MATEMÁTICA QUE VAI MUDAR SUA VIDA FINANCEIRA</h2>
+            <div class="text-center" style="margin-bottom: 40px;">
+                <p><strong>Custo Total:</strong> R$ 3,20 | <strong>Venda Revenda:</strong> R$ 7,00</p>
+                <p><strong>LUCRO POR COOKIE: R$ 3,80</strong> (Margem 54% na revenda)</p>
+            </div>
+
+            <div class="math-grid">
+                <!-- Conservador -->
+                <div class="math-card">
+                    <h3 class="text-blue">CENÁRIO CONSERVADOR</h3>
+                    <p>Começando Devagar</p>
+                    <hr style="border: 0; border-top: 1px solid #eee; margin: 15px 0;">
+                    <p>● 5 pontos de revenda</p>
+                    <p>● 20 cookies/semana cada</p>
+                    <div class="math-highlight">R$ 1.520/mês</div>
+                    <p style="font-size: 0.9rem;">Trabalho: 6-8h/semana</p>
+                </div>
+                <!-- Médio -->
+                <div class="math-card" style="transform: scale(1.05); border-color: var(--col-cta);">
+                    <h3 class="text-blue">CENÁRIO MÉDIO</h3>
+                    <p>Ritmo Sustentável</p>
+                    <hr style="border: 0; border-top: 1px solid #eee; margin: 15px 0;">
+                    <p>● 10 pontos de revenda</p>
+                    <p>● 30 cookies/semana cada</p>
+                    <div class="math-highlight">R$ 4.560/mês</div>
+                    <p style="font-size: 0.9rem;">Trabalho: 12-16h/semana</p>
+                </div>
+                <!-- Agressivo -->
+                <div class="math-card">
+                    <h3 class="text-blue">CENÁRIO AGRESSIVO</h3>
+                    <p>Escalando de Verdade</p>
+                    <hr style="border: 0; border-top: 1px solid #eee; margin: 15px 0;">
+                    <p>● 20 pontos de revenda</p>
+                    <p>● 40 cookies/semana cada</p>
+                    <div class="math-highlight">R$ 12.160/mês</div>
+                    <p style="font-size: 0.9rem;">Trabalho: 24-30h/semana</p>
+                </div>
+            </div>
+
+            <div
+                style="background: #fff; border-radius: 10px; padding: 30px; margin-top: 30px; border: 1px solid #eee;">
+                <p><strong>Seu investimento de R$ 29,90 se paga vendendo APENAS 8 cookies.</strong></p>
+                <p><strong>Depois disso? <span style="color: var(--col-gold);">Lucro puro.</span></strong></p>
+
+                <h3 class="text-blue" style="margin-top: 20px;">E o Melhor:</h3>
+                <p>Esses números são com cookies de R$ 7,00 para revenda.</p>
+                <p>Se você vender direto ao consumidor (R$ 12-15), seu lucro por cookie sobe para R$ 6,80-10,80.</p>
+
+                <h3 class="text-blue" style="margin-top: 20px;">O que significa:</h3>
+                <ul style="list-style: none;">
+                    <li>- Cenário conservador: <strong style="color: var(--col-gold);">R$ 2.720/mês</strong></li>
+                    <li>- Cenário médio: <strong style="color: var(--col-gold);">R$ 8.160/mês</strong></li>
+                    <li>- Cenário agressivo: <strong style="color: var(--col-gold);">R$ 21.760/mês</strong></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 10: BENEFÍCIOS EMPILHADOS & SEÇÃO 11: 3 BÔNUS & SEÇÃO 12: OFERTA -->
+    <section class="section bg-blue" id="oferta">
+        <div class="container text-white">
+            <h2 class="text-center text-gold">VOCÊ VAI RECEBER:</h2>
+            <ul style="max-width: 600px; margin: 0 auto; font-size: 1.2rem;">
+                <li style="margin-bottom: 15px;">✅ <strong>1 ANO DE ACESSO GARANTIDO</strong></li>
+                <li style="margin-bottom: 15px;">✅ <strong>RECEITAS 100% TESTADAS E VALIDADAS</strong></li>
+                <li style="margin-bottom: 15px;">✅ <strong>SISTEMA DE ESTABILIZAÇÃO TRIPLA™</strong></li>
+                <li style="margin-bottom: 15px;">✅ <strong>SUPORTE DIRETO COMIGO</strong>
+                    <div style="font-size: 1rem; opacity: 0.9; margin-top: 5px;">Errou o ponto da massa? Não está
+                        atingindo 30 dias?<br>Você tem suporte direto para tirar dúvidas e resolver qualquer problema
+                        durante 30 dias.<br>Ninguém fica para trás.</div>
+                </li>
+            </ul>
+
+            <h2 class="text-center text-gold" style="margin-top: 60px;">+ 3 BÔNUS EXCLUSIVOS:</h2>
+            <div class="bonus-section">
+                <div class="bonus-grid text-left">
+                    <div class="bonus-card">
+                        <div class="bonus-image">
+                            <img src="bonus1-script.jpg" alt="Script de abordagem para pontos de revenda" loading="lazy"
+                                width="300" height="300">
+                        </div>
+                        <div class="bonus-text">
+                            <h3>🎁 BÔNUS #1</h3>
+                            <p style="font-weight: bold;">Script Completo de Abordagem para Pontos de Revenda</p>
+                            <p class="text-gold">Valor: R$ 67</p>
+                            <hr style="border-color: rgba(255,255,255,0.1); margin: 15px 0;">
+                            <p>A abordagem passo a passo de como fazer a abordagem inicial e fechar os primeiros 5
+                                pontos de
+                                venda.</p>
+                            <ul style="font-size: 0.9rem; list-style: inside disc;">
+                                <li>Fazer a abordagem inicial</li>
+                                <li>Apresentar seu produto de forma profissional</li>
+                                <li>Fechar o primeiro pedido</li>
+                                <li>Criar relacionamento de longo prazo</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="bonus-card">
+                        <div class="bonus-image">
+                            <img src="bonus2-calculadora.jpg" alt="Calculadora automática de lucro e precificação"
+                                loading="lazy" width="300" height="169">
+                        </div>
+                        <div class="bonus-text">
+                            <h3>🎁 BÔNUS #2</h3>
+                            <p style="font-weight: bold;">Calculadora Automática de Lucro & Precificação</p>
+                            <p class="text-gold">Valor: R$ 67</p>
+                            <hr style="border-color: rgba(255,255,255,0.1); margin: 15px 0;">
+                            <p>Planilha inteligente onde você coloca o custo de cada ingrediente e ela calcula
+                                AUTOMATICAMENTE:
+                            </p>
+                            <ul style="font-size: 0.9rem; list-style: inside disc;">
+                                <li>Custo por cookie</li>
+                                <li>Preço ideal de venda (revenda e varejo)</li>
+                                <li>Margem de lucro</li>
+                                <li>Quanto você precisa vender para atingir sua meta</li>
+                            </ul>
+                            <p style="margin-top: 10px;">Você vai evitar ficar no prejuízo. Vai saber EXATAMENTE quanto
+                                está
+                                ganhando.</p>
+                        </div>
+                    </div>
+                    <div class="bonus-card">
+                        <div class="bonus-image">
+                            <img src="bonus3-embalagem.jpg" alt="Pack de embalagem profissional para cookies"
+                                loading="lazy" width="300" height="300">
+                        </div>
+                        <div class="bonus-text">
+                            <h3>🎁 BÔNUS #3</h3>
+                            <p style="font-weight: bold;">Pack de Embalagem Profissional</p>
+                            <p class="text-gold">Valor: R$ 87</p>
+                            <hr style="border-color: rgba(255,255,255,0.1); margin: 15px 0;">
+                            <p>Inclui: ✅ 2 modelos de rótulos editáveis (Canva)</p>
+                            <p>Rótulo profissional traz diferenciação e te permite imediatamente cobrar mais. Seu cookie
+                                vai
+                                estar com cara de produto profissional desde o primeiro dia.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Preço -->
+            <div class="text-center">
+                <div class="price-box">
+                    <p class="price-small">VALOR TOTAL: R$ 348</p>
+                    <p class="price-strike">VALOR OFICIAL: R$ 97,00</p>
+                    <h3 class="text-gold" style="margin-top: 20px;">OFERTA DE PRÉ-LANÇAMENTO:</h3>
+                    <div class="price-final">R$ 29,90<span style="font-size: 1.5rem; color: #fff; font-weight: normal;">
+                            à vista</span></div>
+                    <p class="price-small">Ou 12x de R$ 2,99</p>
+                    <p style="margin-top: 10px; color: #aaa; font-size: 0.9rem;">Menos que um cafezinho por mês.</p>
+                </div>
+
+                <a href="#" class="btn btn-cta btn-large">SIM! QUERO COMEÇAR AGORA POR R$ 29,90</a>
+                <p style="margin-top: 15px; opacity: 0.8;">[Acesso imediato + Garantia de 7 dias]</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 13: AUTORIDADE -->
+    <section class="section bg-white">
+        <div class="container text-center">
+            <h2 class="text-blue">QUEM SOU EU?</h2>
+            <img src="expert.jpg"
+                alt="Mulher sorrindo de jaqueta de chef azul-marinho em ambiente de produção, ao lado de caixas empilhadas."
+                loading="lazy" width="200" height="200"
+                style="width: 200px; height: 200px; border-radius: 50%; margin: 16px auto 30px; object-fit: cover; object-position: center; display: block; aspect-ratio: 1/1;">
+            <h3 class="text-blue">Giovanna Dutz</h3>
+            <div style="max-width: 800px; margin: 0 auto; text-align: left;">
+                <p>Meu nome é <strong>Giovanna Dutz</strong> e eu trabalho com confeitaria profissional.</p>
+                <p>Minha história começou exatamente como a sua provavelmente está agora:</p>
+                <p>Vendendo doces de porta em porta. Dependendo de encomendas pontuais. Vivendo na <strong
+                        style="color: var(--col-urg);">montanha-russa financeira</strong>: um mês eu pagava as contas...
+                    e no outro mal cobria os ingredientes.</p>
+                <p>Eu estava <strong style="color: var(--col-urg);">esgotada</strong>.</p>
+                <p>Trabalhava <strong>12-14 horas por dia</strong> fazendo brigadeiros, bolos, brownies... E no final do
+                    mês? Sobrava <strong style="color: var(--col-urg);">mixaria</strong>.</p>
+                <p>Até que descobri o modelo de <strong>clientes recorrentes</strong>. E dentro desse modelo, descobri
+                    que <strong style="color: var(--col-gold);">Cookie Estilo Nova York</strong> de 30 dias era o
+                    produto PERFEITO:</p>
+                <p><strong>Nos primeiros 38 dias, eu fechei com 11 pontos de revenda. Hoje, forneço para 45 pontos
+                        fixos.</strong></p>
+                <p>Mas o melhor de tudo? <strong>Recuperei minha vida.</strong></p>
+                <p>Não trabalho mais 14h/dia. Não dependo mais de "mês bom/mês ruim". Não jogo mais produtos no lixo
+                    porque estragaram.</p>
+                <p><strong style="color: var(--col-gold);">Eu tenho previsibilidade.</strong></p>
+                <p>E é exatamente isso que você vai aprender neste material.</p>
+                <p>Que você pare de trabalhar feito louca para ganhar pouco... E comece a trabalhar de forma
+                    <strong>INTELIGENTE</strong>, com clientes fixos, <strong style="color: var(--col-gold);">renda
+                        previsível</strong> e produto exclusivo.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 14: FAQ -->
+    <section class="section bg-white" style="background: #f9f9f9;">
+        <div class="container">
+            <h2 class="text-center text-blue">PERGUNTAS FREQUENTES</h2>
+            <div style="max-width: 800px; margin: 0 auto;">
+                <!-- FAQ Items -->
+                <div class="faq-item">
+                    <button class="faq-question">Eu nunca fiz um cookie na vida. Vou conseguir? <span
+                            class="faq-icon">▼</span></button>
+                    <div class="faq-answer">
+                        <p>SIM! As receitas são passo a passo com fotos. Se você fez bolo de caixinha, consegue fazer
+                            Cookie NY.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Preciso de equipamentos caros? <span class="faq-icon">▼</span></button>
+                    <div class="faq-answer">
+                        <p>NÃO! Apenas forno doméstico, tigela, forma e balança (R$ 30).</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Como recebo o e-book? <span class="faq-icon">▼</span></button>
+                    <div class="faq-answer">
+                        <p>Imediamente no seu e-mail após a confirmação da compra. Acesso vitalício.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Moro em cidade pequena. Funciona? <span
+                            class="faq-icon">▼</span></button>
+                    <div class="faq-answer">
+                        <p>Funciona AINDA MELHOR! Menos concorrência e você será a ÚNICA.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Tem garantia? <span class="faq-icon">▼</span></button>
+                    <div class="faq-answer">
+                        <p>SIM! Garantia de 7 dias. Se não gostar, devolvo 100% do dinheiro.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 15: CTA FINAL -->
+    <section class="section bg-blue text-center">
+        <div class="container">
+            <h2 class="text-gold">ÚLTIMA CHANCE: Seja a Primeira da Sua Região</h2>
+            <div style="max-width: 800px; margin: 0 auto 40px; text-align: left; color: #fff;">
+                <p>Você tem duas escolhas agora:</p>
+                <br>
+                <h3 style="color: #fff; font-size: 1.2rem;">ESCOLHA #1: Continuar do jeito que está</h3>
+                <ul>
+                    <li>- Vendendo brigadeiro, bolo no pote (que TODO MUNDO faz)</li>
+                    <li>- Dependendo de encomendas pontuais (<strong style="color: var(--col-urg);">mês bom/mês
+                            ruim</strong>)</li>
+                    <li>- Jogando produtos no lixo porque estragaram</li>
+                    <li>- Trabalhando 12-14h/dia para ganhar <strong style="color: var(--col-urg);">mixaria</strong>
+                    </li>
+                    <li>- Sem previsibilidade financeira</li>
+                </ul>
+                <br>
+                <h3 style="color: var(--col-gold); font-size: 1.2rem;">OU... ESCOLHA #2: Dar o próximo passo</h3>
+                <ul>
+                    <li>- Aprender a fazer Cookie Estilo NY (que NINGUÉM na sua região faz)</li>
+                    <li>- Alta validade (ZERO desperdício)</li>
+                    <li>- Vender para clientes FIXOS que compram toda semana</li>
+                    <li>- Ter <strong style="color: var(--col-gold);">renda PREVISÍVEL</strong> (R$ 1.500, R$ 4.500 ou
+                        R$ 12.000/mês)</li>
+                    <li>- Recuperar sua vida</li>
+                </ul>
+                <br>
+                <p class="text-center"><strong>A escolha é sua.</strong></p>
+                <p class="text-center">Mas deixa eu te contar uma coisa: Cada dia que passa, você está <strong
+                        style="color: var(--col-urg);">perdendo dinheiro</strong>.</p>
+                <br>
+                <div
+                    style="background: rgba(255,0,0,0.1); padding: 15px; border: 1px solid var(--col-urg); border-radius: 5px; text-align: center;">
+                    <p style="margin: 0;"><strong>⚠️ ESSE PREÇO É TEMPORÁRIO</strong></p>
+                    <p style="margin: 0;">Quando o pré-lançamento se encerrar, as vagas se encerram. E o valor volta
+                        para <strong>R$ 97,00</strong>.</p>
+                </div>
+                <br>
+                <p class="text-center">Cookie Estilo NY está explodindo no mundo. Quanto mais gente descobrir, menos
+                    exclusivo será na sua região</p>
+                <p class="text-center" style="font-size: 1.5rem; color: var(--col-gold); font-weight: bold;">Seja a
+                    PRIMEIRA.</p>
+            </div>
+
+            <a href="#oferta" class="btn btn-cta btn-large">SIM! QUERO TER RENDA PREVISÍVEL COM COOKIE NY</a>
+            <p class="text-white" style="margin-top: 20px;">12x de R$ 2,99 ou R$ 29,90 à vista</p>
+            <p style="color: #fff; margin-top: 5px;">Acesso IMEDIATO + Garantia de 7 dias + 3 Bônus Exclusivos</p>
+            <p style="color: #aaa; font-size: 0.9rem; margin-top: 20px;"><strong>P.P.S.:</strong> Garantia de 7 dias.
+                <strong>Risco ZERO.</strong> Se não gostar, devolvo 100%.<br>Não tem desculpa para não tentar.
+            </p>
+        </div>
+    </section>
+
+    <footer style="background: #111; color: #555; padding: 20px; text-align: center; font-size: 0.8rem;">
+        <p>&copy; 2024 Cookie Recorrente 30 Dias. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const item = button.parentElement;
+                item.classList.toggle('active');
+            });
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Lazy Loading (Native + Fallback for background images if needed in future)
+        // Note: Generic images are lightweight or placeholders in this version.
+    </script>
+</body>
+
+</html>
