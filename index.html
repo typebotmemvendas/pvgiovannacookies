@@ -27,7 +27,7 @@
             --text-light: #FFFFFF;
             --font-head: 'Montserrat', sans-serif;
             --font-body: 'Open Sans', sans-serif;
-            --gap-section: 40px;
+            --gap-section: 48px;
         }
 
         /* Reset & Base */
@@ -127,7 +127,7 @@
         /* Desktop section spacing */
         @media (min-width: 768px) {
             .section {
-                padding: 60px 0;
+                padding: 72px 0;
             }
         }
 
@@ -198,23 +198,32 @@
 
         /* Specific Sections */
 
-        /* 1. Banner Urgência */
+        /* 1. Banner Urgência — sticky, fino, Bordeaux */
         #banner-urgencia {
             background-color: var(--col-urg);
             color: white;
             text-align: center;
-            padding: 10px;
+            padding: 6px 12px;
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             z-index: 1000;
-            font-weight: bold;
-            font-size: 0.9rem;
+            font-weight: 600;
+            font-size: 0.78rem;
+            line-height: 1.3;
+            letter-spacing: 0.01em;
+        }
+
+        @media (min-width: 768px) {
+            #banner-urgencia {
+                padding: 8px 16px;
+                font-size: 0.85rem;
+            }
         }
 
         body {
-            padding-top: 40px;
+            padding-top: 36px;
         }
 
         /* Space for fixed banner */
@@ -227,21 +236,31 @@
 
         /* 3. Hero */
         .hero-section {
-            padding: 60px 0;
+            padding: 48px 0 56px;
             text-align: center;
         }
 
         .hero-headline {
-            font-size: 1.8rem;
-            /* Mobile first */
-            margin-bottom: 20px;
+            font-size: 1.55rem;
+            /* Mobile first — premium, less heavy */
+            margin-bottom: 24px;
             color: #fff;
+            line-height: 1.35;
+            font-weight: 700;
+            letter-spacing: -0.01em;
         }
 
         .hero-sub {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             margin-bottom: 30px;
-            opacity: 0.9;
+            opacity: 0.92;
+            line-height: 1.65;
+        }
+
+        @media (min-width: 768px) {
+            .hero-section {
+                padding: 64px 0 72px;
+            }
         }
 
         .hero-img-placeholder {
@@ -432,6 +451,10 @@
             .bonus-grid {
                 gap: 30px;
             }
+
+            .cta-escolha2 {
+                margin-top: 16px;
+            }
         }
 
         /* Pergunta destaque */
@@ -449,6 +472,191 @@
             .pergunta-destaque {
                 font-size: 1.25rem;
                 margin: 25px 0;
+            }
+        }
+
+        /* Pain-points Section */
+        .pain-section {
+            background: #FAF8F5;
+        }
+
+        .pain-section-title {
+            font-family: var(--font-head);
+            font-size: 1.45rem;
+            font-weight: 700;
+            text-align: center;
+            color: var(--bg-auth);
+            max-width: 800px;
+            margin: 0 auto 48px;
+            line-height: 1.5;
+        }
+
+        @media (min-width: 768px) {
+            .pain-section-title {
+                font-size: 1.75rem;
+                margin-bottom: 56px;
+            }
+        }
+
+        .pain-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .pain-card {
+            background: #FFFFFF;
+            border: 1px solid #D6CDC4;
+            border-radius: 12px;
+            padding: 28px 24px;
+            line-height: 1.7;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+        }
+
+        .pain-card-title {
+            font-family: var(--font-head);
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--bg-auth);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        @media (max-width: 767px) {
+            .pain-card-title {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 6px;
+            }
+        }
+
+        .pain-card-title .pain-icon {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-auth);
+            color: #fff;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .pain-card p {
+            font-size: 1.05rem;
+            color: #444;
+            margin-bottom: 0;
+        }
+
+        .pain-absolution {
+            max-width: 800px;
+            margin: 40px auto 0;
+            text-align: center;
+            font-size: 1.25rem;
+            line-height: 1.8;
+            color: var(--text-main);
+        }
+
+        @media (min-width: 768px) {
+            .pain-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .pain-card:last-child {
+                grid-column: 1 / -1;
+                max-width: 460px;
+                justify-self: center;
+            }
+
+            .pain-absolution {
+                font-size: 1.35rem;
+            }
+        }
+
+        /* Transformation Section */
+        .transform-section {
+            background: #FAF8F5;
+        }
+
+        .transform-title {
+            max-width: 900px;
+            margin: 0 auto 40px;
+            font-family: var(--font-head);
+            font-size: 1.6rem;
+            font-weight: 700;
+            text-align: center;
+            line-height: 1.4;
+            color: var(--text-main);
+        }
+
+        @media (max-width: 768px) {
+            .transform-title {
+                font-size: 1.25rem;
+            }
+        }
+
+        .transform-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .transform-card {
+            background: #fff;
+            border: 1px solid #E8E0D8;
+            border-radius: 12px;
+            padding: 28px 24px;
+            line-height: 1.7;
+        }
+
+        .transform-card-title {
+            font-family: var(--font-head);
+            font-weight: 700;
+            font-size: 1.15rem;
+            color: var(--bg-auth);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .transform-card-title .t-icon {
+            font-size: 1.4rem;
+            flex-shrink: 0;
+        }
+
+        .transform-card p {
+            font-size: 1.05rem;
+            color: #444;
+            margin-bottom: 0.75rem;
+        }
+
+        .transform-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .heatmap-highlight {
+            background: rgba(212, 165, 116, 0.18);
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+
+        @media (min-width: 768px) {
+            .transform-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .transform-card:last-child {
+                grid-column: 1 / -1;
+                max-width: 460px;
+                justify-self: center;
             }
         }
 
@@ -549,7 +757,7 @@
             }
 
             .hero-headline {
-                font-size: 3rem;
+                font-size: 2.4rem;
             }
 
             .flavors-grid {
@@ -569,6 +777,26 @@
             }
         }
     </style>
+
+    <!-- Meta Pixel Code -->
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '2075409333250960');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=2075409333250960&ev=PageView&noscript=1" /></noscript>
+    <!-- End Meta Pixel Code -->
 </head>
 
 <body>
@@ -582,23 +810,19 @@
     <header class="section bg-blue text-center header-logo">
         <div class="container">
             <h2 style="margin:0; font-size: 1.5rem;">🍪 COOKIE RECORRENTE DE 30 DIAS</h2>
-            <p style="margin:0; opacity: 0.8; font-size: 0.9rem;">O Cookie Estilo Nova York que Transforma Você em
-                Confeiteira Profissional</p>
         </div>
     </header>
 
     <!-- SEÇÃO 3: HEADLINE MAGNÉTICA -->
     <section class="section bg-blue hero-section">
         <div class="container">
-            <h1 class="hero-headline text-white">AS RECEITAS SECRETAS QUE CONFEITARIAS DE NOVA YORK USAM HÁ 30 ANOS PARA
-                TER <span style="color: var(--col-gold);">CLIENTES FIÉIS</span></h1>
-            <h3 class="text-gold" style="margin-bottom: 20px;">(E Como Você Pode Ser a ÚNICA a Copiá-la Para Ter <span
-                    style="background-color: #FEFEFE; color: var(--text-main); padding: 0 5px;">Renda Previsível</span>
-                Todo Mês)</h3>
-            <p class="hero-sub text-white">Aprenda a fazer o <strong style="color: var(--col-gold);">Cookie Estilo Nova
-                    York</strong> que duram <strong style="color: var(--col-gold);">30 dias de validade</strong> e
-                transforma você em fornecedora profissional com <strong>clientes recorrentes</strong> (mesmo que você
-                nunca tenha feito um cookie na vida)</p>
+            <h1 class="hero-headline text-white">CHEGA DE PRODUZIR TODO DIA E LUCRAR POUCO:<br>
+                APRENDA AS 10 RECEITAS DE <span style="color: var(--col-gold);">COOKIES ESTILO NOVA YORK</span><br>
+                COM <span style="color: var(--col-gold);">30 DIAS DE VALIDADE</span></h1>
+            <p class="hero-sub text-white" style="max-width: 720px; margin: 0 auto 20px;">O sistema comprovado pela
+                confeiteiras que deixou a produção diária exaustiva e passou a vender para pontos fixos:<br>
+                produza hoje, distribua por 30 dias e conquiste a <strong style="color: var(--col-gold);">liberdade
+                    financeira</strong> que você sempre quis.</p>
         </div>
     </section>
 
@@ -610,24 +834,91 @@
                 <p>Você aprenderá 10 receitas dos Cookies Estilo Nova York mais vendidos no Brasil — aqueles cookies
                     GIGANTES, crocantes por fora e macios por dentro — com validade de 30 dias.</p>
                 <p><strong>E o melhor: mantendo o sabor, textura e aroma de recém-saído do forno!</strong></p>
-                <br>
-                <h3 class="pergunta-destaque">"Ok, Giovanna, mas por que eu iria querer um cookie com 30 dias de
-                    validade?"</h3>
-                <p>Ótima pergunta!</p>
-                <p>Veja bem...</p>
-                <p>Isso aqui não é um cursinho de receitas de cookie.</p>
-                <p>Isso aqui é um sistema completo para você sair do modelo esgotante de encomendas pontuais...</p>
-                <p>...e entrar no modelo profissional de confeitaria recorrente, vendendo TODO DIA para clientes fixos —
-                    onde você APENAS precisa passar nesses locais, fazer a reposição e receber seu dinheiro.</p>
-                <p>Para que isso aconteça de forma fluida, você precisa de um produto Exclusivo com validade estendida.
-                </p>
-                <p>E o Cookie Estilo Nova York de 30 dias é exatamente isso.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 4B: IDENTIFICAÇÃO DOS PROBLEMAS -->
+    <section class="section pain-section">
+        <div class="container">
+            <h2 class="pain-section-title">Você ama a ideia de fazer doces — o aroma doce da sua cozinha, o sorriso do
+                cliente ao morder o primeiro pedaço.<br><br>
+                Mas a <strong style="color: var(--col-urg);">REALIDADE</strong> por trás dos bastidores é outra
+                história, não é?</h2>
+
+            <div class="pain-grid">
+                <!-- Card 1 -->
+                <div class="pain-card">
+                    <div class="pain-card-title">
+                        <span class="pain-icon">🔄</span>
+                        PRODUÇÃO SEM FIM:
+                    </div>
+                    <p>"Você vive <strong style="color: var(--col-urg);">REFÉM</strong> da cozinha, produzindo hoje para
+                        vender (com sorte) amanhã… e no dia seguinte precisa começar tudo de novo?"</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="pain-card">
+                    <div class="pain-card-title">
+                        <span class="pain-icon">⏳</span>
+                        VALIDADE QUE SABOTA SEUS SONHOS:
+                    </div>
+                    <p>"Seus doces duram poucos dias… o que significa que você não pode revender quase nada e ainda gera
+                        <strong style="color: var(--col-urg);">prejuízo</strong>?"
+                    </p>
+                </div>
+                <!-- Card 3 -->
+                <div class="pain-card">
+                    <div class="pain-card-title">
+                        <span class="pain-icon">💸</span>
+                        LUCRO APERTADO:
+                    </div>
+                    <p>"Você trabalha quase o dia inteiro e no final da semana a margem é <strong
+                            style="color: var(--col-urg);">minúscula</strong> para justificar o esforço, e você sente
+                        que o esforço não tá dando em nada?"</p>
+                </div>
+                <!-- Card 4 -->
+                <div class="pain-card">
+                    <div class="pain-card-title">
+                        <span class="pain-icon">🌫️</span>
+                        SONHO DISTANTE:
+                    </div>
+                    <p>"Aquele sonho de ser uma confeiteira bem paga, com maior tempo livre… parece cada vez mais
+                        <strong style="color: var(--col-urg);">IMPOSSÍVEL</strong>?
+                    </p>
+                    <p style="margin-top: 8px;">Como se você estivesse correndo numa esteira, se esforçando muito mas
+                        nunca saindo do lugar?"</p>
+                </div>
+                <!-- Card 5 -->
+                <div class="pain-card">
+                    <div class="pain-card-title">
+                        <span class="pain-icon">📦</span>
+                        MEDO DE EXPANDIR
+                    </div>
+                    <p>"Vender para pontos físicos parece uma <strong style="color: var(--col-urg);">dor de cabeça
+                            logística</strong> porque estragam rápido?</p>
+                    <p style="margin-top: 8px;">Então fica limitada no modelo de encomendas sob demanda?"</p>
+                </div>
+            </div>
+
+            <div class="pain-absolution">
+                <p>"Se você se identificou… saiba que <strong>NÃO É CULPA SUA</strong>. O modelo tradicional de
+                    confeitaria, focado no consumo imediato, simplesmente <strong style="color: var(--col-urg);">NÃO FOI
+                        FEITO</strong> para escalar.</p>
+                <p>Ele te prende numa rotina exaustiva de produção."</p>
+            </div>
+
+            <div style="max-width: 800px; margin: 40px auto 0; font-size: 1.1rem;">
+                <h3 class="pergunta-destaque">"MAS... e se existisse uma saída com Cookies famoso em Nova York?"</h3>
+                <p>E se algumas confeiteiras no Brasil já estivessem usando esse produto para sair da montanha-russa
+                    financeira e conquistar clientes fixos recorrentes?</p>
+                <p>Esse produto é o Cookie Estilo Nova York.</p>
+                <p><strong style="color: var(--col-gold);">A Diferença? 30 Dias de Validade.</strong></p>
             </div>
         </div>
     </section>
 
     <!-- SEÇÃO 5: TABELA COMPARATIVA -->
-    <section class="section bg-white" style="padding-top: 0;">
+    <section class="section bg-white" style="padding-top: 24px;">
         <div class="container">
             <h2 class="text-center text-blue">A TABELA QUE VAI ABRIR SEUS OLHOS</h2>
             <p class="text-center" style="max-width: 800px; margin: 0 auto 30px;">Por Que Cookie Estilo NY é a Escolha
@@ -719,40 +1010,7 @@
         </div>
     </section>
 
-    <!-- SEÇÃO 6: SEGMENTAÇÃO -->
-    <section class="section bg-white" style="background: #f4f6f9;">
-        <div class="container">
-            <h2 class="text-center text-blue">SERÁ QUE COOKIE RECORRENTE DE 30 DIAS É PARA VOCÊ?</h2>
-            <p class="text-center">Esse método foi pensado milimetricamente para quem:</p>
 
-            <div class="flavors-grid" style="margin-top: 40px;">
-                <div class="card">
-                    <div class="text-center" style="font-size: 2rem; margin-bottom: 10px;">🎯</div>
-                    <h3 class="text-blue">NUNCA FEZ UM COOKIE NA VIDA</h3>
-                    <p>As receitas estão explicadas passo a passo, com medidas exatas e fotos de cada etapa. Se você já
-                        fez um bolo de caixinha, você consegue fazer Cookie NY.</p>
-                </div>
-                <div class="card">
-                    <div class="text-center" style="font-size: 2rem; margin-bottom: 10px;">🚪</div>
-                    <h3 class="text-blue">JÁ VENDE DOCES PORTA A PORTA</h3>
-                    <p>E está CANSADA da <strong style="color: var(--col-urg);">montanha-russa financeira</strong> (mês
-                        bom/mês ruim), querendo migrar para o modelo de clientes fixos e renda previsível.</p>
-                </div>
-                <div class="card">
-                    <div class="text-center" style="font-size: 2rem; margin-bottom: 10px;">🏪</div>
-                    <h3 class="text-blue">JÁ FORNECE EM PONTOS</h3>
-                    <p>E quer adicionar um produto <strong>PREMIUM</strong> ao seu mix — algo que nenhum concorrente tem
-                        e que seus clientes vão AMAR.</p>
-                </div>
-                <div class="card">
-                    <div class="text-center" style="font-size: 2rem; margin-bottom: 10px;">🍪</div>
-                    <h3 class="text-blue">JÁ FAZ COOKIES CASEIROS</h3>
-                    <p>Mas seus cookies duram 3-5 dias, o que dificulta revenda... e você quer aprender a técnica
-                        profissional de <strong style="color: var(--col-gold);">30 dias de validade</strong>.</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- SEÇÃO 7: SISTEMA TRIPLA -->
     <section class="section bg-blue">
@@ -799,7 +1057,7 @@
                 <!-- 01 -->
                 <div class="flavor-card">
                     <div class="flavor-title">01 - CHOCOLATE CHIPS (O Clássico) 🍪</div>
-                    <p>Base amanteigada com gotas de chocolate. O #1 em vendas.</p>
+
                     <p><strong>Por que vende:</strong> É o #1 em vendas na rede Mr. Cheney no Brasil. Sabor universal
                         que agrada 90% das pessoas. Presença obrigatória em qualquer cardápio.</p>
                     <div class="flavor-margin">Margem: ~78%</div>
@@ -807,7 +1065,7 @@
                 <!-- 02 -->
                 <div class="flavor-card">
                     <div class="flavor-title">02 - TRIPLE CHOCOLATE 🍫🍫🍫</div>
-                    <p>Massa de chocolate + meio amargo + branco. Explosão de sabor.</p>
+
                     <p><strong>Por que vende:</strong> 2º sabor mais vendido em cookies americanos no Brasil.
                         Chocólatras são 40% do público — e eles pagam MAIS por intensidade de sabor.</p>
                     <div class="flavor-margin">Margem: ~76%</div>
@@ -815,7 +1073,7 @@
                 <!-- 03 -->
                 <div class="flavor-card">
                     <div class="flavor-title">03 - CHOCOLATE CHIPS COM M&M'S 🌈</div>
-                    <p>Sucesso absoluto entre crianças e adolescentes. Visual lúdico.</p>
+
                     <p><strong>Por que vende:</strong> Top 5 da Mr. Cheney. Sucesso absoluto entre
                         crianças/adolescentes. Aparência lúdica que "vende sozinha" no balcão.</p>
                     <div class="flavor-margin">Margem: ~75%</div>
@@ -823,7 +1081,7 @@
                 <!-- 04 -->
                 <div class="flavor-card">
                     <div class="flavor-title">04 - DOUBLE CHOCOLATE 🍫🍫</div>
-                    <p>Mais intenso que o clássico. Para público adulto e sofisticado.</p>
+
                     <p><strong>Por que vende:</strong> Top 5 nos cardápios gourmet. Público adulto e sofisticado prefere
                         versões mais intensas.</p>
                     <div class="flavor-margin">Margem: ~77%</div>
@@ -831,7 +1089,7 @@
                 <!-- 05 -->
                 <div class="flavor-card">
                     <div class="flavor-title">05 - WHITE CHOCOLATE CHIPS 🤍</div>
-                    <p>Perfil doce e delicado. Ideal para combos e presentes.</p>
+
                     <p><strong>Por que vende:</strong> Perfil doce e delicado. Ideal para combos e boxes presenteáveis.
                         Agrada quem não curte chocolate amargo.</p>
                     <div class="flavor-margin">Margem: ~76%</div>
@@ -839,7 +1097,7 @@
                 <!-- 06 -->
                 <div class="flavor-card">
                     <div class="flavor-title">06 - RED VELVET ❤️</div>
-                    <p>Sabor GOURMET, justifica preço 30% maior. Fotogênico.</p>
+
                     <p><strong>Por que vende:</strong> Sabor GOURMET que justifica preço 30% mais alto. Extremamente
                         fotogênico (bomba no Instagram). Essencial em menus premium.</p>
                     <div class="flavor-margin">Margem: ~74% | Premium</div>
@@ -847,7 +1105,7 @@
                 <!-- 07 -->
                 <div class="flavor-card">
                     <div class="flavor-title">07 - COOKIES & CREAM (Oreo) 🖤🤍</div>
-                    <p>Sabor nostálgico que famílias amam. Textura única.</p>
+
                     <p><strong>Por que vende:</strong> Sabor nostálgico que adolescentes e famílias AMAM. Textura única
                         (crocante do Oreo + cremoso do cookie).</p>
                     <div class="flavor-margin">Margem: ~73%</div>
@@ -855,7 +1113,7 @@
                 <!-- 08 -->
                 <div class="flavor-card">
                     <div class="flavor-title">08 - BRIGADEIRO (Brasileiro) 🇧🇷</div>
-                    <p>Cookie americano + Brigadeiro. Apelo cultural fortíssimo.</p>
+
                     <p><strong>Por que vende:</strong> Combina dois ícones: Cookie americano + Brigadeiro brasileiro.
                         Forte apelo emocional e cultural.</p>
                     <div class="flavor-margin">Margem: ~77%</div>
@@ -863,7 +1121,7 @@
                 <!-- 09 -->
                 <div class="flavor-card">
                     <div class="flavor-title">09 - PISTACHE C/ CHOCOLATE BRANCO 💚</div>
-                    <p>Cookie SUPER PREMIUM. Justifica preços de R$ 15-20.</p>
+
                     <p><strong>Por que vende:</strong> Cookie PREMIUM que justifica os maiores preços (R$ 15-20).
                         Visualmente impactante. Muito usado em datas especiais e presentes corporativos.</p>
                     <div class="flavor-margin">Margem: ~70% | Premium</div>
@@ -871,7 +1129,7 @@
                 <!-- 10 -->
                 <div class="flavor-card">
                     <div class="flavor-title">10 - DOCE DE LEITE & CANELA (Churros) 🍮</div>
-                    <p>Sobremesa nostálgica. Para quem ama doces intensos.</p>
+
                     <p><strong>Por que vende:</strong> Combina sabores brasileiros clássicos. Sensação de sobremesa
                         nostálgica. Perfeito para público que adora doces intensos.</p>
                     <div class="flavor-margin">Margem: ~76%</div>
@@ -941,13 +1199,98 @@
         </div>
     </section>
 
+    <!-- SEÇÃO 9B: TRANSFORMAÇÃO -->
+    <section class="section transform-section">
+        <div class="container">
+            <h2 class="transform-title">Ao investir no Material do <strong style="color: var(--col-gold);">Cookie de 30
+                    Dias</strong>, você não está comprando informação vazia, está investindo em se tornar uma
+                confeiteira com <strong style="color: var(--col-gold);">CONTROLE</strong> sobre seu dinheiro e sua vida:
+            </h2>
+
+            <div class="transform-grid">
+                <!-- Card 1 -->
+                <div class="transform-card">
+                    <div class="transform-card-title">
+                        <span class="t-icon">⏰</span>
+                        RECUPERE SEU TEMPO (E Sua Sanidade Mental)
+                    </div>
+                    <p>Chega de acordar na terça-feira correndo pra cozinha.</p>
+                    <p>Com cookies de <strong style="color: var(--col-gold);">30 dias</strong>, você <strong
+                            style="color: var(--col-gold);">PRODUZ</strong> numa segunda-feira e as semanas seguintes é
+                        só <strong style="color: var(--col-gold);">DISTRIBUIR</strong> e <strong
+                            style="color: var(--col-gold);">RECEBER</strong>.</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="transform-card">
+                    <div class="transform-card-title">
+                        <span class="t-icon">🚀</span>
+                        ESCALE SEM VIRAR REFÉM DA COZINHA
+                    </div>
+                    <p><strong style="color: var(--col-gold);"><span class="heatmap-highlight">Produza 1x por
+                                semana</span></strong>. Distribua para 10, 15, 20 pontos.</p>
+                    <p>Descubra como cookies de <strong style="color: var(--col-gold);">30 dias</strong> permitem você
+                        fornecer para pontos fixos sem precisar produzir todo santo dia...</p>
+                    <p>porque o produto aguenta transporte e prateleira por um mês inteiro.</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="transform-card">
+                    <div class="transform-card-title">
+                        <span class="t-icon">💰</span>
+                        AUMENTE SUA MARGEM (E Trabalhe Menos)
+                    </div>
+                    <p>Aprenda a precificação exata, escolha de ingredientes inteligentes e cálculo de custo real para
+                        multiplicar cada real que entra no seu bolso.</p>
+                    <p><strong style="color: var(--col-gold);">margem</strong> saudável desde o primeiro lote.</p>
+                </div>
+                <!-- Card 4 -->
+                <div class="transform-card">
+                    <div class="transform-card-title">
+                        <span class="t-icon">🔬</span>
+                        DOMINE O SISTEMA DE 30 DIAS:
+                    </div>
+                    <p>Você vai aprender o <strong style="color: var(--col-gold);"><span
+                                class="heatmap-highlight">SISTEMA DE ESTABILIZAÇÃO TRIPLA™</span></strong> que faz
+                        cookies durarem <strong style="color: var(--col-gold);">30 dias</strong> mantendo sabor e
+                        textura de recém-saído do forno.</p>
+                </div>
+                <!-- Card 5 -->
+                <div class="transform-card">
+                    <div class="transform-card-title">
+                        <span class="t-icon">👩‍🍳</span>
+                        PRODUZA COM PADRÃO DE CONFEITEIRA PROFISSIONAL (Mesmo em Casa)
+                    </div>
+                    <p>Aprenda Padronização de tamanho e peso (todos iguais); Técnica de corte profissional (sem
+                        desperdício); Embalagem que VENDE; e Segurança alimentar.</p>
+                </div>
+                <!-- Card 6 -->
+                <div class="transform-card">
+                    <div class="transform-card-title">
+                        <span class="t-icon">🧩</span>
+                        TRANSFORME 1 RECEITA EM 10 PRODUTOS DIFERENTES
+                    </div>
+                    <p>Você não vai aprender "10 receitas separadas".</p>
+                    <p>Você vai dominar UMA base mestra para poder criar variações a partir dela.</p>
+                    <p>Assim você atende TODO tipo de cliente, sem precisar virar expert em 50 receitas.</p>
+                </div>
+                <!-- Card 7 -->
+                <div class="transform-card">
+                    <div class="transform-card-title">
+                        <span class="t-icon">🤝</span>
+                        TENHA SUPORTE COM QUEM REALMENTE FAZ
+                    </div>
+                    <p>Este método foi criado por Giovanna Dutz, que vive de vendas de cookies de 30D e irá ajudar você
+                        nessa jornada.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- SEÇÃO 10: BENEFÍCIOS EMPILHADOS & SEÇÃO 11: 3 BÔNUS & SEÇÃO 12: OFERTA -->
     <section class="section bg-blue" id="oferta">
         <div class="container text-white">
             <h2 class="text-center text-gold">VOCÊ VAI RECEBER:</h2>
             <ul style="max-width: 600px; margin: 0 auto; font-size: 1.2rem;">
                 <li style="margin-bottom: 15px;">✅ <strong>1 ANO DE ACESSO GARANTIDO</strong></li>
-                <li style="margin-bottom: 15px;">✅ <strong>RECEITAS 100% TESTADAS E VALIDADAS</strong></li>
                 <li style="margin-bottom: 15px;">✅ <strong>SISTEMA DE ESTABILIZAÇÃO TRIPLA™</strong></li>
                 <li style="margin-bottom: 15px;">✅ <strong>SUPORTE DIRETO COMIGO</strong>
                     <div style="font-size: 1rem; opacity: 0.9; margin-top: 5px;">Errou o ponto da massa? Não está
@@ -1077,6 +1420,41 @@
         </div>
     </section>
 
+    <!-- SEÇÃO SEGMENTAÇÃO (movida para após QUEM SOU EU) -->
+    <section class="section bg-white" style="background: #f4f6f9;">
+        <div class="container">
+            <h2 class="text-center text-blue">SERÁ QUE COOKIE RECORRENTE DE 30 DIAS É PARA VOCÊ?</h2>
+            <p class="text-center">Esse método foi pensado milimetricamente para quem:</p>
+
+            <div class="flavors-grid" style="margin-top: 40px;">
+                <div class="card">
+                    <div class="text-center" style="font-size: 2rem; margin-bottom: 10px;">🎯</div>
+                    <h3 class="text-blue">NUNCA FEZ UM COOKIE NA VIDA</h3>
+                    <p>As receitas estão explicadas passo a passo, com medidas exatas e fotos de cada etapa. Se você já
+                        fez um bolo de caixinha, você consegue fazer Cookie NY.</p>
+                </div>
+                <div class="card">
+                    <div class="text-center" style="font-size: 2rem; margin-bottom: 10px;">🚪</div>
+                    <h3 class="text-blue">JÁ VENDE DOCES PORTA A PORTA</h3>
+                    <p>E está CANSADA da <strong style="color: var(--col-urg);">montanha-russa financeira</strong> (mês
+                        bom/mês ruim), querendo migrar para o modelo de clientes fixos e renda previsível.</p>
+                </div>
+                <div class="card">
+                    <div class="text-center" style="font-size: 2rem; margin-bottom: 10px;">🏪</div>
+                    <h3 class="text-blue">JÁ FORNECE EM PONTOS</h3>
+                    <p>E quer adicionar um produto <strong>PREMIUM</strong> ao seu mix — algo que nenhum concorrente tem
+                        e que seus clientes vão AMAR.</p>
+                </div>
+                <div class="card">
+                    <div class="text-center" style="font-size: 2rem; margin-bottom: 10px;">🍪</div>
+                    <h3 class="text-blue">JÁ FAZ COOKIES CASEIROS</h3>
+                    <p>Mas seus cookies duram 3-5 dias, o que dificulta revenda... e você quer aprender a técnica
+                        profissional de <strong style="color: var(--col-gold);">30 dias de validade</strong>.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- SEÇÃO 14: FAQ -->
     <section class="section bg-white" style="background: #f9f9f9;">
         <div class="container">
@@ -1138,7 +1516,8 @@
                     <li>- Sem previsibilidade financeira</li>
                 </ul>
                 <br>
-                <h3 style="color: var(--col-gold); font-size: 1.2rem;">OU... ESCOLHA #2: Dar o próximo passo</h3>
+                <h3 class="cta-escolha2" style="color: var(--col-gold); font-size: 1.2rem;">OU... ESCOLHA #2: Dar o
+                    próximo passo</h3>
                 <ul>
                     <li>- Aprender a fazer Cookie Estilo NY (que NINGUÉM na sua região faz)</li>
                     <li>- Alta validade (ZERO desperdício)</li>
@@ -1199,6 +1578,18 @@
 
         // Lazy Loading (Native + Fallback for background images if needed in future)
         // Note: Generic images are lightweight or placeholders in this version.
+
+        // Banner height -> body padding-top (avoid CLS on mobile)
+        (function () {
+            var banner = document.getElementById('banner-urgencia');
+            if (!banner) return;
+            function adjustPadding() {
+                document.body.style.paddingTop = banner.offsetHeight + 'px';
+            }
+            adjustPadding();
+            window.addEventListener('resize', adjustPadding);
+            window.addEventListener('orientationchange', adjustPadding);
+        })();
     </script>
 </body>
 
