@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" style="overflow-x: hidden;">
 
 <head>
     <meta charset="UTF-8">
@@ -112,6 +112,11 @@
             font-weight: bold;
         }
 
+        .text-green {
+            color: var(--col-cta);
+            font-weight: bold;
+        }
+
         /* Layout */
         .container {
             width: 100%;
@@ -198,35 +203,27 @@
 
         /* Specific Sections */
 
-        /* 1. Banner Urgência — sticky, fino, Bordeaux */
+        /* 1. Banner Urgência */
         #banner-urgencia {
             background-color: var(--col-urg);
             color: white;
             text-align: center;
-            padding: 6px 12px;
-            position: fixed;
-            top: 0;
-            left: 0;
+            padding: 12px 16px;
+            position: relative;
             width: 100%;
             z-index: 1000;
-            font-weight: 600;
-            font-size: 0.78rem;
-            line-height: 1.3;
-            letter-spacing: 0.01em;
+            font-weight: 700;
+            font-size: 0.95rem;
+            line-height: 1.4;
+            letter-spacing: 0.02em;
         }
 
         @media (min-width: 768px) {
             #banner-urgencia {
-                padding: 8px 16px;
-                font-size: 0.85rem;
+                padding: 16px 20px;
+                font-size: 1.1rem;
             }
         }
-
-        body {
-            padding-top: 36px;
-        }
-
-        /* Space for fixed banner */
 
         /* 2. Logo/Título */
         .header-logo {
@@ -236,30 +233,40 @@
 
         /* 3. Hero */
         .hero-section {
-            padding: 48px 0 56px;
+            padding: 12px 0 56px;
             text-align: center;
         }
 
         .hero-headline {
-            font-size: 1.55rem;
+            font-size: 1.4rem;
             /* Mobile first — premium, less heavy */
-            margin-bottom: 24px;
+            margin-bottom: 16px;
             color: #fff;
-            line-height: 1.35;
+            line-height: 1.25;
             font-weight: 700;
             letter-spacing: -0.01em;
         }
 
         .hero-sub {
-            font-size: 1.1rem;
-            margin-bottom: 30px;
+            font-size: 1.05rem;
+            margin-bottom: 24px;
             opacity: 0.92;
-            line-height: 1.65;
+            line-height: 1.5;
         }
 
         @media (min-width: 768px) {
             .hero-section {
-                padding: 64px 0 72px;
+                padding: 16px 0 72px;
+            }
+
+            .hero-headline {
+                font-size: 2.4rem;
+                margin-bottom: 24px;
+                line-height: 1.35;
+            }
+
+            .hero-sub {
+                font-size: 1.2rem;
             }
         }
 
@@ -336,21 +343,25 @@
         }
 
         .flavor-card {
-            border: 1px solid #eee;
+            border: 1px solid var(--col-gold);
             padding: 20px;
             border-radius: 8px;
-            background: #f9f9f9;
+            background: var(--bg-auth);
             transition: transform 0.2s;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .flavor-card p {
+            color: #ffffff;
         }
 
         .flavor-card:hover {
             transform: translateY(-5px);
-            background: #fff;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
         }
 
         .flavor-title {
-            color: var(--bg-auth);
+            color: var(--col-gold);
             font-weight: 700;
             margin-bottom: 10px;
             font-size: 1.2rem;
@@ -360,6 +371,32 @@
             color: var(--col-cta);
             font-weight: bold;
             font-size: 0.9rem;
+        }
+
+        .flavor-img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            display: block;
+            object-fit: cover;
+            aspect-ratio: 1 / 1;
+        }
+
+        @media (max-width: 768px) {
+            .flavor-img {
+                margin: 0 auto 20px;
+                width: 90%;
+            }
+
+            .flavor-title {
+                font-size: 1.35rem;
+                text-align: center;
+            }
+
+            .flavor-card {
+                padding: 24px;
+            }
         }
 
         /* 9. Matemática */
@@ -477,7 +514,10 @@
 
         /* Pain-points Section */
         .pain-section {
-            background: #FAF8F5;
+            background: #F4EBE1;
+            border-top: 1px solid #E5D6C5;
+            border-bottom: 1px solid #E5D6C5;
+            box-shadow: inset 0 4px 12px rgba(0, 0, 0, 0.03);
         }
 
         .pain-section-title {
@@ -580,7 +620,10 @@
 
         /* Transformation Section */
         .transform-section {
-            background: #FAF8F5;
+            background: #F4EBE1;
+            border-top: 1px solid #E5D6C5;
+            border-bottom: 1px solid #E5D6C5;
+            box-shadow: inset 0 4px 12px rgba(0, 0, 0, 0.03);
         }
 
         .transform-title {
@@ -814,9 +857,10 @@
     </header>
 
     <!-- SEÇÃO 3: HEADLINE MAGNÉTICA -->
-    <section class="section bg-blue hero-section">
+    <section class="section bg-blue hero-section" style="position: relative;">
         <div class="container">
-            <h1 class="hero-headline text-white">CHEGA DE PRODUZIR TODO DIA E LUCRAR POUCO:<br>
+            <h1 class="hero-headline text-white">CHEGA DE PRODUZIR TODO DIA E LUCRAR
+                POUCO:<br>
                 APRENDA AS 10 RECEITAS DE <span style="color: var(--col-gold);">COOKIES ESTILO NOVA YORK</span><br>
                 COM <span style="color: var(--col-gold);">30 DIAS DE VALIDADE</span></h1>
             <p class="hero-sub text-white" style="max-width: 720px; margin: 0 auto 20px;">O sistema comprovado pela
@@ -870,7 +914,7 @@
                 <div class="pain-card">
                     <div class="pain-card-title">
                         <span class="pain-icon">💸</span>
-                        LUCRO APERTADO:
+                        <span class="text-green">LUCRO</span> APERTADO:
                     </div>
                     <p>"Você trabalha quase o dia inteiro e no final da semana a margem é <strong
                             style="color: var(--col-urg);">minúscula</strong> para justificar o esforço, e você sente
@@ -929,68 +973,68 @@
                     <thead>
                         <tr>
                             <th>CRITÉRIO</th>
+                            <th class="col-highlight">COOKIE NY</th>
                             <th>BRIGADEIRO</th>
                             <th>PALHA</th>
                             <th>BROWNIE</th>
-                            <th class="col-highlight">COOKIE NY</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>Validade</td>
+                            <td class="col-highlight">30 DIAS <span class="check-mark">✅</span></td>
                             <td>3-5 dias</td>
                             <td>30 dias</td>
                             <td>5-7 dias</td>
-                            <td class="col-highlight">30 DIAS <span class="check-mark">✅</span></td>
                         </tr>
                         <tr>
                             <td>Tamanho</td>
+                            <td class="col-highlight">120-150g <span class="check-mark">✅ (MAIOR)</span></td>
                             <td>15-20g</td>
                             <td>30-40g</td>
                             <td>50-70g</td>
-                            <td class="col-highlight">120-150g <span class="check-mark">✅ (MAIOR)</span></td>
                         </tr>
                         <tr>
                             <td>Preço Venda</td>
+                            <td class="col-highlight">R$ 10-15 <span class="check-mark">✅ (MAIOR)</span></td>
                             <td>R$ 2,50</td>
                             <td>R$ 6-8</td>
                             <td>R$ 8-10</td>
-                            <td class="col-highlight">R$ 10-15 <span class="check-mark">✅ (MAIOR)</span></td>
                         </tr>
                         <tr>
                             <td>Custo Prod.</td>
+                            <td class="col-highlight">R$ 3,00-3,50</td>
                             <td>R$ 0,80</td>
                             <td>R$ 2,50</td>
                             <td>R$ 3,00</td>
-                            <td class="col-highlight">R$ 3,00-3,50</td>
                         </tr>
                         <tr>
-                            <td>MARGEM</td>
+                            <td><strong class="text-green">MARGEM</strong></td>
+                            <td class="col-highlight">75-80% <span class="check-mark">✅ (MELHOR)</span></td>
                             <td>68%</td>
                             <td>69%</td>
                             <td>70%</td>
-                            <td class="col-highlight">75-80% <span class="check-mark">✅ (MELHOR)</span></td>
                         </tr>
                         <tr>
                             <td>Exclusivid.</td>
+                            <td class="col-highlight">ALTÍSSIMA <span class="check-mark">✅</span></td>
                             <td>SATURADO</td>
                             <td>Média</td>
                             <td>Média</td>
-                            <td class="col-highlight">ALTÍSSIMA <span class="check-mark">✅</span></td>
                         </tr>
                         <tr>
                             <td>Revenda</td>
+                            <td class="col-highlight">IDEAL <span class="check-mark">✅</span></td>
                             <td>Difícil</td>
                             <td>Boa</td>
                             <td>Média</td>
-                            <td class="col-highlight">IDEAL <span class="check-mark">✅</span></td>
                         </tr>
                         <tr>
                             <td>Percepção</td>
+                            <td class="col-highlight">"PREMIUM" <span class="check-mark">✅</span></td>
                             <td>"Docinho"</td>
                             <td>"Doce"</td>
                             <td>"Bolo"</td>
-                            <td class="col-highlight">"PREMIUM" <span class="check-mark">✅</span></td>
                         </tr>
                     </tbody>
                 </table>
@@ -1051,7 +1095,7 @@
     <section class="section bg-white">
         <div class="container">
             <h2 class="text-center text-blue">VEJA OS 10 SABORES DE COOKIE ESTILO NY QUE VOCÊ VAI DOMINAR:</h2>
-            <p class="text-center">São os 10 cookies que MAIS VENDEM no Brasil e EUA.</p>
+            <p class="text-center">São os 10 cookies que MAIS VENDEM no Brasil!</p>
 
             <div class="flavors-grid" style="margin-top: 40px;">
                 <!-- 01 -->
@@ -1139,12 +1183,14 @@
     </section>
 
     <!-- SEÇÃO 9: MATEMÁTICA 3 CENÁRIOS -->
-    <section class="section bg-white" style="background: #fcfcfc;">
+    <section class="section bg-white"
+        style="background: #F0F2F5; border-top: 1px solid #E1E5EA; border-bottom: 1px solid #E1E5EA;">
         <div class="container">
             <h2 class="text-center text-blue">⚡ A MATEMÁTICA QUE VAI MUDAR SUA VIDA FINANCEIRA</h2>
             <div class="text-center" style="margin-bottom: 40px;">
                 <p><strong>Custo Total:</strong> R$ 3,20 | <strong>Venda Revenda:</strong> R$ 7,00</p>
-                <p><strong>LUCRO POR COOKIE: R$ 3,80</strong> (Margem 54% na revenda)</p>
+                <p><strong class="text-green">LUCRO POR COOKIE: R$ 3,80</strong> (<span class="text-green">Margem</span>
+                    54% na revenda)</p>
             </div>
 
             <div class="math-grid">
@@ -1183,17 +1229,18 @@
             <div
                 style="background: #fff; border-radius: 10px; padding: 30px; margin-top: 30px; border: 1px solid #eee;">
                 <p><strong>Seu investimento de R$ 29,90 se paga vendendo APENAS 8 cookies.</strong></p>
-                <p><strong>Depois disso? <span style="color: var(--col-gold);">Lucro puro.</span></strong></p>
+                <p><strong>Depois disso? <span class="text-green">Lucro puro.</span></strong></p>
 
                 <h3 class="text-blue" style="margin-top: 20px;">E o Melhor:</h3>
                 <p>Esses números são com cookies de R$ 7,00 para revenda.</p>
-                <p>Se você vender direto ao consumidor (R$ 12-15), seu lucro por cookie sobe para R$ 6,80-10,80.</p>
+                <p>Se você vender direto ao consumidor (R$ 12-15), seu <strong class="text-green">lucro</strong> por
+                    cookie sobe para <strong class="text-green">R$ 6,80-10,80</strong>.</p>
 
                 <h3 class="text-blue" style="margin-top: 20px;">O que significa:</h3>
                 <ul style="list-style: none;">
-                    <li>- Cenário conservador: <strong style="color: var(--col-gold);">R$ 2.720/mês</strong></li>
-                    <li>- Cenário médio: <strong style="color: var(--col-gold);">R$ 8.160/mês</strong></li>
-                    <li>- Cenário agressivo: <strong style="color: var(--col-gold);">R$ 21.760/mês</strong></li>
+                    <li>- Cenário conservador: <strong class="text-green">R$ 2.720/mês</strong></li>
+                    <li>- Cenário médio: <strong class="text-green">R$ 8.160/mês</strong></li>
+                    <li>- Cenário agressivo: <strong class="text-green">R$ 21.760/mês</strong></li>
                 </ul>
             </div>
         </div>
@@ -1204,7 +1251,8 @@
         <div class="container">
             <h2 class="transform-title">Ao investir no Material do <strong style="color: var(--col-gold);">Cookie de 30
                     Dias</strong>, você não está comprando informação vazia, está investindo em se tornar uma
-                confeiteira com <strong style="color: var(--col-gold);">CONTROLE</strong> sobre seu dinheiro e sua vida:
+                confeiteira com <strong style="color: var(--col-gold);">CONTROLE</strong> sobre seu <strong
+                    class="text-green">dinheiro</strong> e sua vida:
             </h2>
 
             <div class="transform-grid">
@@ -1239,8 +1287,8 @@
                         AUMENTE SUA MARGEM (E Trabalhe Menos)
                     </div>
                     <p>Aprenda a precificação exata, escolha de ingredientes inteligentes e cálculo de custo real para
-                        multiplicar cada real que entra no seu bolso.</p>
-                    <p><strong style="color: var(--col-gold);">margem</strong> saudável desde o primeiro lote.</p>
+                        multiplicar cada <strong class="text-green">real</strong> que entra no seu bolso.</p>
+                    <p><strong class="text-green">Margem de lucro</strong> saudável desde o primeiro lote.</p>
                 </div>
                 <!-- Card 4 -->
                 <div class="transform-card">
@@ -1330,7 +1378,8 @@
                         </div>
                         <div class="bonus-text">
                             <h3>🎁 BÔNUS #2</h3>
-                            <p style="font-weight: bold;">Calculadora Automática de Lucro & Precificação</p>
+                            <p style="font-weight: bold;">Calculadora Automática de <span
+                                    class="text-green">Lucro</span> & Precificação</p>
                             <p class="text-gold">Valor: R$ 67</p>
                             <hr style="border-color: rgba(255,255,255,0.1); margin: 15px 0;">
                             <p>Planilha inteligente onde você coloca o custo de cada ingrediente e ela calcula
@@ -1339,12 +1388,13 @@
                             <ul style="font-size: 0.9rem; list-style: inside disc;">
                                 <li>Custo por cookie</li>
                                 <li>Preço ideal de venda (revenda e varejo)</li>
-                                <li>Margem de lucro</li>
+                                <li><strong class="text-green">Margem de lucro</strong></li>
                                 <li>Quanto você precisa vender para atingir sua meta</li>
                             </ul>
                             <p style="margin-top: 10px;">Você vai evitar ficar no prejuízo. Vai saber EXATAMENTE quanto
                                 está
-                                ganhando.</p>
+                                <strong class="text-green">ganhando</strong>.
+                            </p>
                         </div>
                     </div>
                     <div class="bonus-card">
@@ -1414,7 +1464,7 @@
                 <p><strong style="color: var(--col-gold);">Eu tenho previsibilidade.</strong></p>
                 <p>E é exatamente isso que você vai aprender neste material.</p>
                 <p>Que você pare de trabalhar feito louca para ganhar pouco... E comece a trabalhar de forma
-                    <strong>INTELIGENTE</strong>, com clientes fixos, <strong style="color: var(--col-gold);">renda
+                    <strong>INTELIGENTE</strong>, com clientes fixos, <strong class="text-green">renda
                         previsível</strong> e produto exclusivo.
                 </p>
             </div>
@@ -1422,7 +1472,8 @@
     </section>
 
     <!-- SEÇÃO SEGMENTAÇÃO (movida para após QUEM SOU EU) -->
-    <section class="section bg-white" style="background: #f4f6f9;">
+    <section class="section bg-white"
+        style="background: #F0F2F5; border-top: 1px solid #E1E5EA; border-bottom: 1px solid #E1E5EA;">
         <div class="container">
             <h2 class="text-center text-blue">SERÁ QUE COOKIE RECORRENTE DE 30 DIAS É PARA VOCÊ?</h2>
             <p class="text-center">Esse método foi pensado milimetricamente para quem:</p>
@@ -1438,7 +1489,8 @@
                     <div class="text-center" style="font-size: 2rem; margin-bottom: 10px;">🚪</div>
                     <h3 class="text-blue">JÁ VENDE DOCES PORTA A PORTA</h3>
                     <p>E está CANSADA da <strong style="color: var(--col-urg);">montanha-russa financeira</strong> (mês
-                        bom/mês ruim), querendo migrar para o modelo de clientes fixos e renda previsível.</p>
+                        bom/mês ruim), querendo migrar para o modelo de clientes fixos e <strong
+                            class="text-green">renda previsível</strong>.</p>
                 </div>
                 <div class="card">
                     <div class="text-center" style="font-size: 2rem; margin-bottom: 10px;">🏪</div>
@@ -1457,7 +1509,8 @@
     </section>
 
     <!-- SEÇÃO 14: FAQ -->
-    <section class="section bg-white" style="background: #f9f9f9;">
+    <section class="section bg-white"
+        style="background: #F0F2F5; border-top: 1px solid #E1E5EA; border-bottom: 1px solid #E1E5EA;">
         <div class="container">
             <h2 class="text-center text-blue">PERGUNTAS FREQUENTES</h2>
             <div style="max-width: 800px; margin: 0 auto;">
@@ -1523,14 +1576,13 @@
                     <li>- Aprender a fazer Cookie Estilo NY (que NINGUÉM na sua região faz)</li>
                     <li>- Alta validade (ZERO desperdício)</li>
                     <li>- Vender para clientes FIXOS que compram toda semana</li>
-                    <li>- Ter <strong style="color: var(--col-gold);">renda PREVISÍVEL</strong> (R$ 1.500, R$ 4.500 ou
-                        R$ 12.000/mês)</li>
+                    <li>- Ter <strong class="text-green">renda PREVISÍVEL</strong> (<span class="text-green">R$ 1.500,
+                            R$ 4.500 ou
+                            R$ 12.000/mês</span>)</li>
                     <li>- Recuperar sua vida</li>
                 </ul>
                 <br>
                 <p class="text-center"><strong>A escolha é sua.</strong></p>
-                <p class="text-center">Mas deixa eu te contar uma coisa: Cada dia que passa, você está <strong
-                        style="color: var(--col-urg);">perdendo dinheiro</strong>.</p>
                 <br>
                 <div
                     style="background: rgba(255,0,0,0.1); padding: 15px; border: 1px solid var(--col-urg); border-radius: 5px; text-align: center;">
