@@ -624,6 +624,8 @@
             border-top: 1px solid #E5D6C5;
             border-bottom: 1px solid #E5D6C5;
             box-shadow: inset 0 4px 12px rgba(0, 0, 0, 0.03);
+            padding-top: 80px;
+            /* Maior espaçamento antes do titulo */
         }
 
         .transform-title {
@@ -638,8 +640,14 @@
         }
 
         @media (max-width: 768px) {
+            .transform-section {
+                padding-top: 64px;
+                /* Respiro no mobile também */
+            }
+
             .transform-title {
-                font-size: 1.25rem;
+                font-size: 1.45rem;
+                /* Aumentado de 1.25rem no mobile */
             }
         }
 
@@ -1632,18 +1640,6 @@
 
         // Lazy Loading (Native + Fallback for background images if needed in future)
         // Note: Generic images are lightweight or placeholders in this version.
-
-        // Banner height -> body padding-top (avoid CLS on mobile)
-        (function () {
-            var banner = document.getElementById('banner-urgencia');
-            if (!banner) return;
-            function adjustPadding() {
-                document.body.style.paddingTop = banner.offsetHeight + 'px';
-            }
-            adjustPadding();
-            window.addEventListener('resize', adjustPadding);
-            window.addEventListener('orientationchange', adjustPadding);
-        })();
     </script>
 </body>
 
