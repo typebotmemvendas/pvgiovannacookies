@@ -790,6 +790,234 @@
             transform: rotate(180deg);
         }
 
+        /* Novas Seções */
+        .mockup-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin: 40px auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .mockup-container::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            height: 60%;
+            background: rgba(0, 0, 0, 0.5);
+            filter: blur(40px);
+            z-index: -1;
+            border-radius: 50%;
+        }
+
+        .device {
+            background: #222;
+            border-radius: 12px;
+            padding: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid #333;
+        }
+
+        .device-screen {
+            background: #111;
+            border-radius: 4px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+        }
+
+        .device-notebook {
+            width: 400px;
+            height: 250px;
+            border-radius: 16px;
+            padding: 12px 12px 20px 12px;
+            border-bottom-width: 8px;
+        }
+
+        .device-tablet {
+            width: 220px;
+            height: 300px;
+        }
+
+        .device-phone {
+            width: 140px;
+            height: 280px;
+            border-radius: 20px;
+            padding: 8px;
+            border-width: 4px;
+        }
+
+        .device img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+
+        .garantia-section {
+            background-color: var(--bg-main);
+            padding: 80px 20px;
+        }
+
+        .garantia-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .garantia-badge {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 4px solid var(--col-gold);
+            background: var(--bg-auth);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            text-align: center;
+            flex-shrink: 0;
+            margin: 0 auto;
+        }
+
+        .badge-stars {
+            color: var(--col-gold);
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            line-height: 1;
+        }
+
+        .badge-band {
+            background: var(--col-gold);
+            color: var(--bg-auth);
+            font-weight: 900;
+            padding: 4px 0;
+            width: 110%;
+            text-transform: uppercase;
+            font-size: 1rem;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            font-family: var(--font-head);
+            letter-spacing: 1px;
+        }
+
+        .badge-text-top {
+            color: #fff;
+            font-weight: 900;
+            font-size: 2.2rem;
+            line-height: 1;
+            margin-bottom: 25px;
+            font-family: var(--font-head);
+        }
+
+        .badge-text-bottom {
+            color: #fff;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-top: 25px;
+            max-width: 120px;
+            line-height: 1.2;
+            opacity: 0.9;
+        }
+
+        .garantia-cta-desktop {
+            display: inline-block;
+        }
+
+        .garantia-cta-mobile {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .mockup-container {
+                flex-direction: row;
+                gap: 5px;
+                transform: scale(0.95);
+            }
+
+            .device-notebook {
+                width: 160px;
+                height: 100px;
+                padding: 6px 6px 10px 6px;
+                border-bottom-width: 4px;
+                border-radius: 8px;
+            }
+
+            .device-tablet {
+                width: 90px;
+                height: 120px;
+                padding: 4px;
+                border-radius: 6px;
+            }
+
+            .device-phone {
+                width: 60px;
+                height: 110px;
+                padding: 3px;
+                border-radius: 8px;
+                border-width: 2px;
+            }
+
+            .garantia-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .garantia-container h2,
+            .garantia-container p {
+                text-align: center !important;
+            }
+
+            .garantia-badge {
+                width: 140px;
+                height: 140px;
+                margin-bottom: 20px;
+            }
+
+            .badge-text-top {
+                font-size: 1.8rem;
+                margin-bottom: 20px;
+            }
+
+            .badge-text-bottom {
+                font-size: 0.65rem;
+                margin-top: 20px;
+            }
+
+            .badge-band {
+                font-size: 0.85rem;
+            }
+
+            .garantia-cta-desktop {
+                display: none !important;
+            }
+
+            .garantia-cta-mobile {
+                display: block !important;
+                margin-top: 20px;
+                width: 100%;
+            }
+        }
+
         /* Animations */
         @keyframes pulse {
             0% {
@@ -865,15 +1093,23 @@
     </div>
 
     <!-- SEÇÃO 2: LOGO/TÍTULO -->
-    <header class="section bg-blue text-center header-logo">
+    <header class="section bg-blue text-center header-logo" style="display: none;">
         <div class="container">
-            <h2 style="margin:0; font-size: 1.5rem;">🍪 COOKIE RECORRENTE DE 30 DIAS</h2>
         </div>
     </header>
 
     <!-- SEÇÃO 3: HEADLINE MAGNÉTICA -->
     <section class="section bg-blue hero-section" style="position: relative;">
         <div class="container">
+            <img src="logo.png" alt="O Sistema Cookie Recorrente"
+                style="display: block; margin: 0 auto; padding-top: 16px; padding-bottom: 24px; max-width: 180px; width: 100%; height: auto;">
+            <style>
+                @media (max-width: 768px) {
+                    .hero-section img {
+                        max-width: 130px !important;
+                    }
+                }
+            </style>
             <h1 class="hero-headline text-white"><span style="font-size: 0.9em;">CHEGA DE PRODUZIR TODO DIA E LUCRAR
                     POUCO:</span><br><br>
                 APRENDA AS 10 RECEITAS DE <span style="color: var(--col-gold);">COOKIES ESTILO NOVA YORK</span><br>
@@ -1523,47 +1759,35 @@
         </div>
     </section>
 
-    <!-- SEÇÃO 14: FAQ -->
-    <section class="section bg-white"
-        style="background: #F0F2F5; border-top: 1px solid #E1E5EA; border-bottom: 1px solid #E1E5EA;">
+    <!-- NOVA SEÇÃO: ACESSO IMEDIATO -->
+    <section class="section bg-white text-center" style="padding: 80px 20px; margin-bottom: 64px;">
         <div class="container">
-            <h2 class="text-center text-blue">PERGUNTAS FREQUENTES</h2>
-            <div style="max-width: 800px; margin: 0 auto;">
-                <!-- FAQ Items -->
-                <div class="faq-item">
-                    <button class="faq-question">Eu nunca fiz um cookie na vida. Vou conseguir? <span
-                            class="faq-icon">▼</span></button>
-                    <div class="faq-answer">
-                        <p>SIM! As receitas são passo a passo com fotos. Se você fez bolo de caixinha, consegue fazer
-                            Cookie NY.</p>
+            <h2 class="text-blue" style="font-family: var(--font-body); font-weight: bold;">Acesso Imediato em Qualquer
+                Dispositivo</h2>
+            <p style="color: var(--text-main); font-size: 1.2rem; max-width: 800px; margin: 0 auto;">Após a
+                compra, você recebe acesso imediato ao material completo, que pode ser acessado em qualquer dispositivo:
+                computador, tablet ou celular.</p>
+
+            <div class="mockup-container">
+                <div class="device device-notebook">
+                    <div class="device-screen" style="background-color: var(--bg-auth);">
+                        <img src="logo.png" alt="O Sistema Cookie Recorrente">
                     </div>
                 </div>
-                <div class="faq-item">
-                    <button class="faq-question">Preciso de equipamentos caros? <span class="faq-icon">▼</span></button>
-                    <div class="faq-answer">
-                        <p>NÃO! Apenas forno doméstico, tigela, forma e balança (R$ 30).</p>
+                <div class="device device-tablet">
+                    <div class="device-screen" style="background-color: var(--bg-auth);">
+                        <img src="logo.png" alt="O Sistema Cookie Recorrente">
                     </div>
                 </div>
-                <div class="faq-item">
-                    <button class="faq-question">Como recebo o e-book? <span class="faq-icon">▼</span></button>
-                    <div class="faq-answer">
-                        <p>Imediamente no seu e-mail após a confirmação da compra. Acesso vitalício.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">Moro em cidade pequena. Funciona? <span
-                            class="faq-icon">▼</span></button>
-                    <div class="faq-answer">
-                        <p>Funciona AINDA MELHOR! Menos concorrência e você será a ÚNICA.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">Tem garantia? <span class="faq-icon">▼</span></button>
-                    <div class="faq-answer">
-                        <p>SIM! Garantia de 7 dias. Se não gostar, devolvo 100% do dinheiro.</p>
+                <div class="device device-phone">
+                    <div class="device-screen" style="background-color: var(--bg-auth);">
+                        <img src="logo.png" alt="O Sistema Cookie Recorrente">
                     </div>
                 </div>
             </div>
+
+            <a href="https://pay.cakto.com.br/3avn5qk_786504" target="_blank" class="btn btn-cta btn-large"
+                style="margin-top: 20px;">SIM! QUERO ACESSO IMEDIATO AGORA 🔒</a>
         </div>
     </section>
 
@@ -1619,6 +1843,87 @@
             <p style="color: #aaa; font-size: 0.9rem; margin-top: 20px;"><strong>P.P.S.:</strong> Garantia de 7 dias.
                 <strong>Risco ZERO.</strong> Se não gostar, devolvo 100%.<br>Não tem desculpa para não tentar.
             </p>
+        </div>
+    </section>
+
+    <!-- NOVA SEÇÃO: GARANTIA -->
+    <section class="garantia-section" style="margin-top: 64px; margin-bottom: 64px;">
+        <div class="garantia-container">
+            <div>
+                <h2
+                    style="color: var(--bg-auth); font-size: 2.2rem; margin-bottom: 20px; text-align: left; font-family: var(--font-body); font-weight: bold;">
+                    Seu Risco é Zero!</h2>
+
+                <p style="color: var(--bg-auth); font-size: 1.15rem; margin-bottom: 24px; text-align: left;">
+                    Estamos tão confiantes no poder de transformação do Sistema Cookie Recorrente que oferecemos uma
+                    Garantia Incondicional de 7 dias.
+                </p>
+                <p style="color: var(--bg-auth); font-size: 1.15rem; margin-bottom: 40px; text-align: left;">
+                    Se por qualquer motivo você sentir que o método não é para você, basta nos enviar um e-mail dentro
+                    de 7 dias e devolvemos 100% do seu investimento. Sem perguntas. Sem burocracia.
+                </p>
+
+                <div class="garantia-cta-desktop">
+                    <a href="https://pay.cakto.com.br/3avn5qk_786504" target="_blank" class="btn btn-cta btn-large"
+                        style="padding: 20px 40px; width: 100%; max-width: 600px;">SIM! QUERO COMEÇAR COM RISCO ZERO
+                        🔒</a>
+                </div>
+            </div>
+            <div class="garantia-badge">
+                <div class="badge-stars">★★★</div>
+                <div class="badge-text-top">7</div>
+                <div class="badge-band">GARANTIA!</div>
+                <div class="badge-text-bottom">dias<br>ou seu dinheiro<br>de volta</div>
+            </div>
+            <div class="garantia-cta-mobile">
+                <a href="https://pay.cakto.com.br/3avn5qk_786504" target="_blank" class="btn btn-cta btn-large"
+                    style="width: 100%; text-align: center; font-size: 1.25rem; padding: 18px 20px;">SIM! QUERO COMEÇAR
+                    COM RISCO ZERO 🔒</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 14: FAQ (MOVIDA) -->
+    <section class="section bg-white" id="faq"
+        style="background: #F0F2F5; border-top: 1px solid #E1E5EA; border-bottom: 1px solid #E1E5EA; margin-bottom: 64px;">
+        <div class="container">
+            <h2 class="text-center text-blue">PERGUNTAS FREQUENTES</h2>
+            <div style="max-width: 800px; margin: 0 auto;">
+                <!-- FAQ Items -->
+                <div class="faq-item">
+                    <button class="faq-question">Eu nunca fiz um cookie na vida. Vou conseguir? <span
+                            class="faq-icon">▼</span></button>
+                    <div class="faq-answer">
+                        <p>SIM! As receitas são passo a passo com fotos. Se você fez bolo de caixinha, consegue fazer
+                            Cookie NY.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Preciso de equipamentos caros? <span class="faq-icon">▼</span></button>
+                    <div class="faq-answer">
+                        <p>NÃO! Apenas forno doméstico, tigela, forma e balança (R$ 30).</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Como recebo o e-book? <span class="faq-icon">▼</span></button>
+                    <div class="faq-answer">
+                        <p>Imediamente no seu e-mail após a confirmação da compra. Acesso vitalício.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Moro em cidade pequena. Funciona? <span
+                            class="faq-icon">▼</span></button>
+                    <div class="faq-answer">
+                        <p>Funciona AINDA MELHOR! Menos concorrência e você será a ÚNICA.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Tem garantia? <span class="faq-icon">▼</span></button>
+                    <div class="faq-answer">
+                        <p>SIM! Garantia de 7 dias. Se não gostar, devolvo 100% do dinheiro.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
