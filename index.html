@@ -383,8 +383,9 @@
         .flavor-img {
             width: 100%;
             height: auto;
-            border-radius: 8px;
-            margin-bottom: 15px;
+            max-width: 260px;
+            margin: 0 auto 15px;
+            border-radius: 12px;
             display: block;
             object-fit: cover;
             aspect-ratio: 1 / 1;
@@ -393,7 +394,8 @@
         @media (max-width: 768px) {
             .flavor-img {
                 margin: 0 auto 20px;
-                width: 90%;
+                width: 100%;
+                max-width: none;
             }
 
             .flavor-title {
@@ -1281,6 +1283,7 @@
             <div class="flavors-grid" style="margin-top: 40px;">
                 <!-- 01 -->
                 <div class="flavor-card">
+                    <img src="cookie1.jpg" alt="Chocolate Chips" class="flavor-img" loading="lazy">
                     <div class="flavor-title">01 - CHOCOLATE CHIPS (O Clássico) 🍪</div>
 
                     <p><strong>Por que vende:</strong> É o #1 em vendas na rede Mr. Cheney no Brasil. Sabor universal
@@ -1289,6 +1292,7 @@
                 </div>
                 <!-- 02 -->
                 <div class="flavor-card">
+                    <img src="cookie2.jpg" alt="Triple Chocolate" class="flavor-img" loading="lazy">
                     <div class="flavor-title">02 - TRIPLE CHOCOLATE 🍫🍫🍫</div>
 
                     <p><strong>Por que vende:</strong> 2º sabor mais vendido em cookies americanos no Brasil.
@@ -1297,6 +1301,7 @@
                 </div>
                 <!-- 03 -->
                 <div class="flavor-card">
+                    <img src="cookie3.jpg" alt="Chocolate Chips com M&M's" class="flavor-img" loading="lazy">
                     <div class="flavor-title">03 - CHOCOLATE CHIPS COM M&M'S 🌈</div>
 
                     <p><strong>Por que vende:</strong> Top 5 da Mr. Cheney. Sucesso absoluto entre
@@ -1305,6 +1310,7 @@
                 </div>
                 <!-- 04 -->
                 <div class="flavor-card">
+                    <img src="cookie4.jpg" alt="Double Chocolate" class="flavor-img" loading="lazy">
                     <div class="flavor-title">04 - DOUBLE CHOCOLATE 🍫🍫</div>
 
                     <p><strong>Por que vende:</strong> Top 5 nos cardápios gourmet. Público adulto e sofisticado prefere
@@ -1313,6 +1319,7 @@
                 </div>
                 <!-- 05 -->
                 <div class="flavor-card">
+                    <img src="cookie5.jpg" alt="White Chocolate Chips" class="flavor-img" loading="lazy">
                     <div class="flavor-title">05 - WHITE CHOCOLATE CHIPS 🤍</div>
 
                     <p><strong>Por que vende:</strong> Perfil doce e delicado. Ideal para combos e boxes presenteáveis.
@@ -1321,6 +1328,7 @@
                 </div>
                 <!-- 06 -->
                 <div class="flavor-card">
+                    <img src="cookie6.jpg" alt="Red Velvet" class="flavor-img" loading="lazy">
                     <div class="flavor-title">06 - RED VELVET ❤️</div>
 
                     <p><strong>Por que vende:</strong> Sabor GOURMET que justifica preço 30% mais alto. Extremamente
@@ -1329,6 +1337,7 @@
                 </div>
                 <!-- 07 -->
                 <div class="flavor-card">
+                    <img src="cookie7.jpg" alt="Cookies & Cream" class="flavor-img" loading="lazy">
                     <div class="flavor-title">07 - COOKIES & CREAM (Oreo) 🖤🤍</div>
 
                     <p><strong>Por que vende:</strong> Sabor nostálgico que adolescentes e famílias AMAM. Textura única
@@ -1337,6 +1346,7 @@
                 </div>
                 <!-- 08 -->
                 <div class="flavor-card">
+                    <img src="cookie8.jpg" alt="Brigadeiro" class="flavor-img" loading="lazy">
                     <div class="flavor-title">08 - BRIGADEIRO (Brasileiro) 🇧🇷</div>
 
                     <p><strong>Por que vende:</strong> Combina dois ícones: Cookie americano + Brigadeiro brasileiro.
@@ -1345,6 +1355,7 @@
                 </div>
                 <!-- 09 -->
                 <div class="flavor-card">
+                    <img src="cookie9.jpg" alt="Pistache com Chocolate Branco" class="flavor-img" loading="lazy">
                     <div class="flavor-title">09 - PISTACHE C/ CHOCOLATE BRANCO 💚</div>
 
                     <p><strong>Por que vende:</strong> Cookie PREMIUM que justifica os maiores preços (R$ 15-20).
@@ -1353,6 +1364,7 @@
                 </div>
                 <!-- 10 -->
                 <div class="flavor-card">
+                    <img src="cookie10.jpg" alt="Doce de Leite & Canela" class="flavor-img" loading="lazy">
                     <div class="flavor-title">10 - DOCE DE LEITE & CANELA (Churros) 🍮</div>
 
                     <p><strong>Por que vende:</strong> Combina sabores brasileiros clássicos. Sensação de sobremesa
@@ -1620,10 +1632,28 @@
     <section class="section bg-white">
         <div class="container text-center">
             <h2 class="text-blue">QUEM SOU EU?</h2>
+            <style>
+                .expert-img {
+                    width: 280px;
+                    height: 280px;
+                    border-radius: 50%;
+                    margin: 16px auto 30px;
+                    object-fit: cover;
+                    object-position: center;
+                    display: block;
+                    aspect-ratio: 1/1;
+                }
+
+                @media (max-width: 768px) {
+                    .expert-img {
+                        width: 220px;
+                        height: 220px;
+                    }
+                }
+            </style>
             <img src="expert.jpg"
                 alt="Mulher sorrindo de jaqueta de chef azul-marinho em ambiente de produção, ao lado de caixas empilhadas."
-                loading="lazy" width="200" height="200"
-                style="width: 200px; height: 200px; border-radius: 50%; margin: 16px auto 30px; object-fit: cover; object-position: center; display: block; aspect-ratio: 1/1;">
+                loading="lazy" width="280" height="280" class="expert-img">
             <h3 class="text-blue">Giovanna Dutz</h3>
             <div style="max-width: 800px; margin: 0 auto; text-align: left;">
                 <p>Meu nome é <strong>Giovanna Dutz</strong> e eu trabalho com confeitaria profissional.</p>
