@@ -1480,28 +1480,184 @@
         </div>
     </section>
 
-    <!-- NOVA SEÇÃO: DEPOIMENTOS -->
+    <!-- NOVA SEÇÃO: DEPOIMENTOS (CARROSSEL) -->
     <style>
+        .carousel-wrapper {
+            position: relative;
+            max-width: 600px;
+            margin: 0 auto;
+            border-radius: 16px;
+            overflow: hidden;
+            touch-action: pan-y pinch-zoom; /* improves mobile scroll experience */
+        }
+        .carousel-track {
+            display: flex;
+            transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        .carousel-slide {
+            min-width: 100%;
+            padding: 8px 16px; /* give some room for shadow */
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+        }
+        .carousel-card {
+            background: #FFFFFF;
+            border: 1px solid #E5E7EB;
+            border-radius: 16px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            padding: 16px;
+            width: 100%;
+            max-width: 540px;
+        }
+        .carousel-card img {
+            width: 100%;
+            border-radius: 12px 12px 0 0;
+            display: block;
+            height: auto;
+        }
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+            z-index: 2;
+            transition: all 0.2s;
+            color: var(--bg-auth);
+            font-size: 1.2rem;
+        }
+        .carousel-btn:hover {
+            background: var(--bg-auth);
+            color: #fff;
+            border-color: var(--bg-auth);
+        }
+        .carousel-prev { left: 4px; }
+        .carousel-next { right: 4px; }
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 24px;
+        }
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ccc;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .dot.active {
+            background: var(--bg-auth);
+        }
+
         @media (max-width: 768px) {
-            .depoimentos-cards { gap: 48px !important; }
-            .depoimentos-section { padding-bottom: 100px !important; margin-bottom: 40px !important; }
+            .depoimentos-section { padding-bottom: 80px !important; margin-bottom: 40px !important; }
+            .carousel-btn { width: 36px; height: 36px; font-size: 1rem; }
+            .carousel-slide { padding: 4px 8px; }
         }
     </style>
-    <section class="section bg-white depoimentos-section" style="background-color: #FFFFFF; padding: 80px 0 96px; margin-bottom: 32px;">
+    <section class="section bg-white depoimentos-section" style="background-color: #FFFFFF; padding: 80px 0 64px; margin-bottom: 32px;">
         <div class="container" style="max-width: 900px;">
             <h2 class="text-center text-blue" style="font-family: sans-serif; font-weight: bold; font-size: 2rem; padding-bottom: 40px; margin-bottom: 0;">
                 Opiniões de Alunas sobre o Guia Rápido:
             </h2>
-            <div class="depoimentos-cards" style="display: flex; flex-direction: column; gap: 40px; align-items: center;">
-                <!-- Card 1 -->
-                <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 16px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); padding: 16px; width: 100%; max-width: 540px;">
-                    <img src="prova1.jpg" alt="Depoimento de aluna 1" loading="lazy" style="width: 100%; border-radius: 12px 12px 0 0; display: block; height: auto;">
+            
+            <div style="position: relative; max-width: 650px; margin: 0 auto;">
+                <div class="carousel-wrapper" id="depoimentos-carousel">
+                    <div class="carousel-track" id="carousel-track">
+                        <!-- Slide 1 -->
+                        <div class="carousel-slide">
+                            <div class="carousel-card">
+                                <img src="prova1.jpg" alt="Depoimento de aluna 1" loading="lazy">
+                            </div>
+                        </div>
+                        <!-- Slide 2 -->
+                        <div class="carousel-slide">
+                            <div class="carousel-card">
+                                <img src="prova2.jpg" alt="Depoimento de aluna 2" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <!-- Card 2 -->
-                <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 16px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); padding: 16px; width: 100%; max-width: 540px;">
-                    <img src="prova2.jpg" alt="Depoimento de aluna 2" loading="lazy" style="width: 100%; border-radius: 12px 12px 0 0; display: block; height: auto;">
-                </div>
+                
+                <!-- Botoes -->
+                <button class="carousel-btn carousel-prev" id="btn-prev" aria-label="Anterior">&#10094;</button>
+                <button class="carousel-btn carousel-next" id="btn-next" aria-label="Próximo">&#10095;</button>
             </div>
+            
+            <!-- Pontinhos -->
+            <div class="carousel-dots" id="carousel-dots">
+                <span class="dot active" data-index="0"></span>
+                <span class="dot" data-index="1"></span>
+            </div>
+            
+            <script>
+                document.addEventListener('DOMContentLoaded', () => {
+                    const track = document.getElementById('carousel-track');
+                    const dots = document.querySelectorAll('.dot');
+                    const btnPrev = document.getElementById('btn-prev');
+                    const btnNext = document.getElementById('btn-next');
+                    let currentIndex = 0;
+                    const totalSlides = 2;
+
+                    function updateCarousel() {
+                        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+                        dots.forEach((dot, index) => {
+                            dot.classList.toggle('active', index === currentIndex);
+                        });
+                    }
+
+                    btnNext.addEventListener('click', () => {
+                        currentIndex = (currentIndex + 1) % totalSlides;
+                        updateCarousel();
+                    });
+
+                    btnPrev.addEventListener('click', () => {
+                        currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+                        updateCarousel();
+                    });
+
+                    dots.forEach(dot => {
+                        dot.addEventListener('click', (e) => {
+                            currentIndex = parseInt(e.target.getAttribute('data-index'));
+                            updateCarousel();
+                        });
+                    });
+                    
+                    // Swipe responsivo Mobile
+                    let startX = 0;
+                    let endX = 0;
+                    const carouselContainer = document.getElementById('depoimentos-carousel');
+                    
+                    carouselContainer.addEventListener('touchstart', e => {
+                        startX = e.changedTouches[0].screenX;
+                    }, {passive: true});
+                    
+                    carouselContainer.addEventListener('touchend', e => {
+                        endX = e.changedTouches[0].screenX;
+                        handleSwipe();
+                    }, {passive: true});
+                    
+                    function handleSwipe() {
+                        if (endX < startX - 40) {
+                            btnNext.click(); // swipe left -> prox
+                        }
+                        if (endX > startX + 40) {
+                            btnPrev.click(); // swipe right -> ant
+                        }
+                    }
+                });
+            </script>
         </div>
     </section>
 
