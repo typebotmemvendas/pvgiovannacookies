@@ -781,7 +781,7 @@
 
         .faq-item.active .faq-answer {
             padding: 15px;
-            max-height: 500px;
+            max-height: 1200px;
         }
 
         .faq-icon {
@@ -790,6 +790,16 @@
 
         .faq-item.active .faq-icon {
             transform: rotate(180deg);
+        }
+
+        @media (max-width: 768px) {
+            .faq-question {
+                font-size: 1.25rem;
+                padding: 18px 15px;
+            }
+            .faq-answer p, .faq-answer {
+                font-size: 1.15rem;
+            }
         }
 
         /* Novas Seções */
@@ -1128,9 +1138,11 @@
                     }
                     @media (max-width: 768px) {
                         .vsl-wrapper {
-                            margin: 24px auto 32px;
+                            margin: 24px -12px 32px;
                             border-radius: 8px;
                             border-width: 1px;
+                            width: auto;
+                            max-width: none;
                         }
                     }
                 </style>
@@ -2099,6 +2111,24 @@
                     <button class="faq-question">Tem garantia? <span class="faq-icon">▼</span></button>
                     <div class="faq-answer">
                         <p>SIM! Garantia de 7 dias. Se não gostar, devolvo 100% do dinheiro.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">A plataforma de pagamentos é realmente segura? <span class="faq-icon">▼</span></button>
+                    <div class="faq-answer">
+                        <p>Sim, ao pagar efetuar o pagamento pela Ticto, você está em uma das plataformas mais confiáveis do Brasil.</p>
+                        <p>✅ <strong>Segurança de Nível Bancário:</strong> Seus dados são protegidos pela tecnologia <strong>PCI DSS,</strong> o padrão mundial de segurança dos maiores bancos do mundo na hora de realizar pagamentos.</p>
+                        <p>Ou seja, os dados do seu cartão são <strong>criptografados</strong> tornando-os ilegíveis para terceiros e garantindo uma compra totalmente blindada.</p>
+                        <p>✅ <strong>Reputação Máxima:</strong> Com nota <strong>9.3 no Reclame Aqui</strong>, a Ticto é referência em suporte e respeito ao consumidor.</p>
+                        <p>✅ <strong>Comprou e não era o que esperava?</strong> Nosso sistema de reembolso é simples, e você tem até 7 dias para pedir o reembolso do produto.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Não tenho tempo pra estudar, o Guia Serve pra mim? <span class="faq-icon">▼</span></button>
+                    <div class="faq-answer">
+                        <p>O Guia é direto: <strong>Tempo de leitura do e-book + Cerca de 2h pra aprender 1 receita</strong> (passo a passo com foto de como a receita deve ficar, sem enrolação).</p>
+                        <p>Em 1 semana, você produz 1x/semana e vende por 30 dias sem desperdiçar nada.</p>
+                        <p>Troca horas de produção cansativa por <strong>2h estudo para iniciar sua liberdade mensal, recuperar seu tempo e distribuir em clientes recorrentes.</strong></p>
                     </div>
                 </div>
             </div>
