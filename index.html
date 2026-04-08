@@ -1116,14 +1116,26 @@
             .hero-sub { font-size: 1.3rem; }
         }
         @media (max-width: 767px) {
-            .section { padding: 64px 0; }
-            h1 { font-size: 2.1rem; }
-            h2 { font-size: 1.9rem; }
-            h3 { font-size: 1.5rem; }
-            p, li { font-size: 1.2rem; }
-            .hero-headline { font-size: 1.55rem; }
-            .hero-sub { font-size: 1.15rem; }
-            .pain-section-title { font-size: 1.5rem; }
+            .section { padding: 96px 0 !important; }
+            h1 { font-size: 2.3rem; }
+            h2 { font-size: 2.1rem; }
+            h3 { font-size: 1.65rem; }
+            p, li { font-size: 1.25rem; }
+            .hero-headline { font-size: 1.7rem; }
+            .hero-sub { font-size: 1.25rem; }
+            .pain-section-title { font-size: 1.65rem; }
+            
+            /* Aumentar levemente fontes de títulos de cards/internas */
+            .flavor-title, .pain-card-title, .transform-card-title { font-size: 1.35rem !important; }
+            .math-card h3 { font-size: 1.5rem !important; }
+
+            /* Espaçamento extra entre CARDS (margem e gap) */
+            .card, .flavor-card, .math-card, .pain-card, .transform-card, .bonus-card {
+                margin-bottom: 40px !important; 
+            }
+            .flavors-grid, .math-grid, .pain-grid, .transform-grid, .bonus-grid, .dep-grid {
+                gap: 48px !important; 
+            }
         }
         .card, .flavor-card, .math-card, .pain-card, .transform-card {
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
