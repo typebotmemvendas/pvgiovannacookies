@@ -1095,6 +1095,45 @@
     <noscript><img height="1" width="1" style="display:none"
             src="https://www.facebook.com/tr?id=2075409333250960&ev=PageView&noscript=1" /></noscript>
     <!-- End Meta Pixel Code -->
+    <style>
+        /* OVERRIDES: Cleaner look, clearer contrast, more breathability */
+        :root {
+            --gap-section: 64px;
+        }
+        
+        p, li {
+            font-size: 1.15rem;
+            line-height: 1.7;
+        }
+        
+        @media (min-width: 768px) {
+            .section { padding: 88px 0; }
+            h1 { font-size: 2.8rem; }
+            h2 { font-size: 2.1rem; }
+            h3 { font-size: 1.5rem; }
+            p { font-size: 1.25rem; }
+            .hero-headline { font-size: 2.4rem; }
+            .hero-sub { font-size: 1.3rem; }
+        }
+        @media (max-width: 767px) {
+            .section { padding: 64px 0; }
+            h1 { font-size: 2.1rem; }
+            h2 { font-size: 1.9rem; }
+            h3 { font-size: 1.5rem; }
+            p, li { font-size: 1.2rem; }
+            .hero-headline { font-size: 1.55rem; }
+            .hero-sub { font-size: 1.15rem; }
+            .pain-section-title { font-size: 1.5rem; }
+        }
+        .card, .flavor-card, .math-card, .pain-card, .transform-card {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
+            padding: 32px !important;
+            margin-bottom: 24px !important;
+        }
+        .flavors-grid, .math-grid, .pain-grid, .transform-grid, .bonus-grid {
+            gap: 32px !important;
+        }
+    </style>
 </head>
 
 <body>
@@ -1111,14 +1150,14 @@
     </header>
 
     <!-- SEÇÃO 3: HEADLINE MAGNÉTICA -->
-    <section class="section bg-blue hero-section" style="position: relative;">
+    <section class="section bg-blue hero-section" style="position: relative; padding-top: 40px !important;">
         <div class="container">
             <img src="logo.png" alt="O Sistema Cookie Recorrente"
-                style="display: block; margin: 0 auto; padding-top: 16px; padding-bottom: 24px; max-width: 180px; width: 100%; height: auto;">
+                style="display: block; margin: 0 auto; padding-bottom: 24px; max-width: 260px; width: 100%; height: auto; border-radius: 12px; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2));">
             <style>
                 @media (max-width: 768px) {
                     .hero-section img {
-                        max-width: 130px !important;
+                        max-width: 190px !important;
                     }
                 }
             </style>
@@ -1243,19 +1282,20 @@
                     }
                 }
             </style>
-            <div class="pain-absolution">
-                <p>"Se você se identificou… saiba que <strong>NÃO É CULPA SUA</strong>. O modelo tradicional de
-                    confeitaria, focado no consumo imediato, simplesmente <strong style="color: var(--col-urg);">NÃO FOI
-                        FEITO</strong> para escalar.</p>
-                <p>Ele te prende numa rotina exaustiva de produção."</p>
-            </div>
-
-            <div class="ampliado-mobile" style="max-width: 800px; margin: 40px auto 0; font-size: 1.1rem;">
-                <h3 class="pergunta-destaque">"MAS... e se existisse uma saída com Cookies famoso em Nova York?"</h3>
-                <p>E se algumas confeiteiras no Brasil já estivessem usando esse produto para sair da montanha-russa
-                    financeira e conquistar clientes fixos recorrentes?</p>
-                <p>Esse produto é o Cookie Estilo Nova York.</p>
-                <p><strong style="color: var(--col-gold);">A Diferença? 30 Dias de Validade.</strong></p>
+            <div class="relief-section" style="max-width: 800px; margin: 60px auto 0; display: flex; flex-direction: column; gap: 24px;">
+                <!-- Card 1 -->
+                <div class="relief-card" style="background-color: var(--bg-auth); border-radius: 12px; padding: 32px 24px; text-align: center; color: white; box-shadow: 0 8px 24px rgba(27, 41, 81, 0.4);">
+                    <h3 style="color: white; font-size: 1.5rem; margin-bottom: 16px; font-family: var(--font-head); font-weight: 700;">Se você se identificou… saiba que NÃO É CULPA SUA.</h3>
+                    <p style="font-size: 1.15rem; margin-bottom: 16px;">O modelo tradicional de confeitaria, focado no consumo imediato, simplesmente <strong style="color: var(--col-gold);">NÃO FOI FEITO</strong> para escalar.</p>
+                    <p style="font-size: 1.15rem; margin-bottom: 0;">Ele te prende numa rotina exaustiva de produção.</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="relief-card" style="background-color: #FFFDF8; border: 2px dashed rgb(40, 167, 69); border-radius: 12px; padding: 32px 24px; text-align: center; color: var(--text-main); box-shadow: 0 8px 24px rgba(0,0,0,0.05);">
+                    <h3 class="pergunta-destaque" style="color: var(--col-gold); font-size: 1.4rem; margin-bottom: 16px; margin-top:0;">"MAS... e se existisse uma saída com Cookies famoso em Nova York?"</h3>
+                    <p style="font-size: 1.15rem; margin-bottom: 16px;">E se algumas confeiteiras no Brasil já estivessem usando esse produto para sair da montanha-russa financeira e conquistar clientes fixos recorrentes?</p>
+                    <p style="font-size: 1.15rem; margin-bottom: 16px; font-weight: bold;">Esse produto é o Cookie Estilo Nova York.</p>
+                    <p style="font-size: 1.25rem; margin-bottom: 0;"><strong style="color: var(--col-gold);">A Diferença? Premium e com 30 Dias de Validade.</strong></p>
+                </div>
             </div>
         </div>
     </section>
@@ -1281,49 +1321,34 @@
                 <p>Expandiu para dezenas de lojas vendendo... cookies gigantes estilo NY.</p>
             </div>
         </div>
+        </div>
     </section>
 
-
-
-    <!-- SEÇÃO 7: SISTEMA TRIPLA -->
-    <section class="section bg-blue">
-        <div class="container text-white">
-            <h2 class="text-center text-gold">O Segredo Dos 30 Dias: Sistema de Estabilização Tripla™</h2>
-            <p class="text-center" style="max-width: 800px; margin: 0 auto 40px;">Você deve estar se perguntando: "Tá,
-                mas como um cookie ARTESANAL dura 30 dias sem perder qualidade?". A resposta está no método que
-                confeitarias profissionais usam.</p>
-
-            <div class="math-grid">
-                <div class="card" style="color: var(--text-main);">
-                    <h3 class="text-blue">PILAR #1 - Controle de Umidade™</h3>
-                    <p>A maioria dos cookies estraga porque absorve umidade do ar. Eu descobri uma técnica francesa que
-                        sela a umidade DENTRO do cookie, mantendo a casca crocante e o interior macio por 30 dias.</p>
-                </div>
-                <div class="card" style="color: var(--text-main);">
-                    <h3 class="text-blue">PILAR #2 - Ingrediente Especial™</h3>
-                    <p>Um dos ingredientes (que você JÁ tem na sua cozinha) que, quando adicionado na proporção exata,
-                        age como conservante NATURAL.<br>
-                        Sem química.<br>
-                        Esse ingrediente sozinho adiciona +15 dias de vida útil ao cookie.</p>
-                </div>
-                <div class="card" style="color: var(--text-main);">
-                    <h3 class="text-blue">PILAR #3 - Controle de Oxigênio™</h3>
-                    <p>Um método específico e barato de embalagem que controla o vilão da oxidação. O cookie mantém o
-                        aroma, não absorve cheiros e fica protegido. +7 dias de validade.</p>
-                </div>
-            </div>
-
-            <div class="text-center" style="margin-top: 40px;">
-                <h3 class="text-gold">RESULTADO: 30 DIAS DE VALIDADE</h3>
-                <p>Mantendo textura crocante + sabor + aroma.</p>
+    <!-- NOVA SEÇÃO DEPOIMENTOS -->
+    <section class="section bg-white" style="background: #F0F2F5; border-top: 1px solid #E1E5EA; border-bottom: 1px solid #E1E5EA;">
+        <div class="container">
+            <h2 class="text-center text-blue" style="font-family: var(--font-head); font-weight: 700; margin-bottom: 40px; font-size: 2rem;">E assim essas confeiteiras estão Escalando suas vendas com menos esforços…</h2>
+            <style>
+                .dep-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; max-width: 900px; margin: 0 auto; }
+                .dep-grid img { width: 100%; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); }
+                @media (max-width: 768px) {
+                    .dep-grid { grid-template-columns: 1fr; gap: 24px; }
+                }
+            </style>
+            <div class="dep-grid">
+                <div><img src="novo depo1 (1) mais leve.jpg" alt="Depoimento 1" loading="lazy"></div>
+                <div><img src="depo (1) mais leve.jpg" alt="Depoimento 2" loading="lazy"></div>
             </div>
         </div>
     </section>
 
+
+
+
     <!-- SEÇÃO 8: GRID 10 SABORES -->
     <section class="section bg-white">
         <div class="container">
-            <h2 class="text-center text-blue">VEJA OS 10 SABORES DE COOKIE ESTILO NY QUE VOCÊ VAI DOMINAR:</h2>
+            <h2 class="text-center text-blue">DÁ UMA OLHADA NOS 10 SABORES DE COOKIES AMERICANOS DE 30 DIAS QUE VOCÊ VAI DOMINAR:</h2>
             <p class="text-center">São os 10 cookies que MAIS VENDEM no Brasil!</p>
 
             <div class="flavors-grid" style="margin-top: 40px;">
@@ -1421,6 +1446,40 @@
         </div>
     </section>
 
+    <!-- SEÇÃO 7: SISTEMA TRIPLA -->
+    <section class="section bg-blue">
+        <div class="container text-white">
+            <h2 class="text-center text-gold">O Segredo Dos 30 Dias: Sistema de Estabilização Tripla™</h2>
+            <p class="text-center" style="max-width: 800px; margin: 0 auto 40px;">Você deve estar se perguntando: "Tá,
+                mas como um cookie ARTESANAL dura 30 dias sem perder qualidade?". A resposta está no método que
+                confeitarias profissionais usam.</p>
+
+            <div class="math-grid">
+                <div class="card" style="color: var(--text-main);">
+                    <h3 class="text-blue">PILAR #1 - Controle de Umidade™</h3>
+                    <p>A maioria dos cookies estraga porque absorve umidade do ar. Eu descobri uma técnica francesa que
+                        sela a umidade DENTRO do cookie, mantendo a casca crocante e o interior macio por 30 dias.</p>
+                </div>
+                <div class="card" style="color: var(--text-main);">
+                    <h3 class="text-blue">PILAR #2 - Ingrediente Especial™</h3>
+                    <p>Um dos ingredientes (que você JÁ tem na sua cozinha) que, quando adicionado na proporção exata,
+                        age como conservante NATURAL.<br>
+                        Sem química.<br>
+                        Esse ingrediente sozinho adiciona +15 dias de vida útil ao cookie.</p>
+                </div>
+                <div class="card" style="color: var(--text-main);">
+                    <h3 class="text-blue">PILAR #3 - Controle de Oxigênio™</h3>
+                    <p>Um método específico e barato de embalagem que controla o vilão da oxidação. O cookie mantém o
+                        aroma, não absorve cheiros e fica protegido. +7 dias de validade.</p>
+                </div>
+            </div>
+
+            <div class="text-center" style="margin-top: 40px;">
+                <h3 class="text-gold">RESULTADO: 30 DIAS DE VALIDADE</h3>
+            </div>
+        </div>
+    </section>
+
     <!-- SEÇÃO 9: MATEMÁTICA 3 CENÁRIOS -->
     <section class="section bg-white"
         style="background: #F0F2F5; border-top: 1px solid #E1E5EA; border-bottom: 1px solid #E1E5EA;">
@@ -1465,213 +1524,11 @@
                 </div>
             </div>
 
-            <style>
-                @media (max-width: 768px) {
-                    .lucro-info-box {
-                        display: none !important;
-                    }
-                }
-            </style>
-            <div class="lucro-info-box"
-                style="background: #fff; border-radius: 10px; padding: 30px; margin-top: 30px; border: 1px solid #eee;">
-                <p><strong>Seu investimento de R$ 29,90 se paga vendendo APENAS 8 cookies.</strong></p>
-                <p><strong>Depois disso? <span class="text-green">Lucro puro.</span></strong></p>
 
-                <h3 class="text-blue" style="margin-top: 20px;">E o Melhor:</h3>
-                <p>Esses números são com cookies de R$ 7,00 para revenda.</p>
-                <p>Se você vender direto ao consumidor (R$ 12-15), seu <strong class="text-green">lucro</strong> por
-                    cookie sobe para <strong class="text-green">R$ 6,80-10,80</strong>.</p>
-
-                <h3 class="text-blue" style="margin-top: 20px;">O que significa:</h3>
-                <ul style="list-style: none;">
-                    <li>- Cenário conservador: <strong class="text-green">R$ 2.720/mês</strong></li>
-                    <li>- Cenário médio: <strong class="text-green">R$ 8.160/mês</strong></li>
-                    <li>- Cenário agressivo: <strong class="text-green">R$ 21.760/mês</strong></li>
-                </ul>
-            </div>
         </div>
     </section>
 
-    <!-- NOVA SEÇÃO: DEPOIMENTOS (CARROSSEL) -->
-    <style>
-        .carousel-wrapper {
-            position: relative;
-            max-width: 600px;
-            margin: 0 auto;
-            border-radius: 16px;
-            overflow: hidden;
-            touch-action: pan-y pinch-zoom; /* improves mobile scroll experience */
-        }
-        .carousel-track {
-            display: flex;
-            transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-        }
-        .carousel-slide {
-            min-width: 100%;
-            padding: 8px 16px; /* give some room for shadow */
-            box-sizing: border-box;
-            display: flex;
-            justify-content: center;
-        }
-        .carousel-card {
-            background: #FFFFFF;
-            border: 1px solid #E5E7EB;
-            border-radius: 16px;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-            padding: 16px;
-            width: 100%;
-            max-width: 540px;
-        }
-        .carousel-card img {
-            width: 100%;
-            border-radius: 12px 12px 0 0;
-            display: block;
-            height: auto;
-        }
-        .carousel-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: #fff;
-            border: 1px solid #ddd;
-            border-radius: 50%;
-            width: 44px;
-            height: 44px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
-            z-index: 2;
-            transition: all 0.2s;
-            color: var(--bg-auth);
-            font-size: 1.2rem;
-        }
-        .carousel-btn:hover {
-            background: var(--bg-auth);
-            color: #fff;
-            border-color: var(--bg-auth);
-        }
-        .carousel-prev { left: 4px; }
-        .carousel-next { right: 4px; }
-        .carousel-dots {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 24px;
-        }
-        .dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: #ccc;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-        .dot.active {
-            background: var(--bg-auth);
-        }
 
-        @media (max-width: 768px) {
-            .depoimentos-section { padding-bottom: 80px !important; margin-bottom: 40px !important; }
-            .carousel-btn { width: 36px; height: 36px; font-size: 1rem; }
-            .carousel-slide { padding: 4px 8px; }
-        }
-    </style>
-    <section class="section bg-white depoimentos-section" style="background-color: #FFFFFF; padding: 80px 0 64px; margin-bottom: 32px;">
-        <div class="container" style="max-width: 900px;">
-            <h2 class="text-center text-blue" style="font-family: sans-serif; font-weight: bold; font-size: 2rem; padding-bottom: 40px; margin-bottom: 0;">
-                Opiniões de Alunas sobre o Guia Rápido:
-            </h2>
-            
-            <div style="position: relative; max-width: 650px; margin: 0 auto;">
-                <div class="carousel-wrapper" id="depoimentos-carousel">
-                    <div class="carousel-track" id="carousel-track">
-                        <!-- Slide 1 -->
-                        <div class="carousel-slide">
-                            <div class="carousel-card">
-                                <img src="prova1.jpg" alt="Depoimento de aluna 1" loading="lazy">
-                            </div>
-                        </div>
-                        <!-- Slide 2 -->
-                        <div class="carousel-slide">
-                            <div class="carousel-card">
-                                <img src="prova2.jpg" alt="Depoimento de aluna 2" loading="lazy">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Botoes -->
-                <button class="carousel-btn carousel-prev" id="btn-prev" aria-label="Anterior">&#10094;</button>
-                <button class="carousel-btn carousel-next" id="btn-next" aria-label="Próximo">&#10095;</button>
-            </div>
-            
-            <!-- Pontinhos -->
-            <div class="carousel-dots" id="carousel-dots">
-                <span class="dot active" data-index="0"></span>
-                <span class="dot" data-index="1"></span>
-            </div>
-            
-            <script>
-                document.addEventListener('DOMContentLoaded', () => {
-                    const track = document.getElementById('carousel-track');
-                    const dots = document.querySelectorAll('.dot');
-                    const btnPrev = document.getElementById('btn-prev');
-                    const btnNext = document.getElementById('btn-next');
-                    let currentIndex = 0;
-                    const totalSlides = 2;
-
-                    function updateCarousel() {
-                        track.style.transform = `translateX(-${currentIndex * 100}%)`;
-                        dots.forEach((dot, index) => {
-                            dot.classList.toggle('active', index === currentIndex);
-                        });
-                    }
-
-                    btnNext.addEventListener('click', () => {
-                        currentIndex = (currentIndex + 1) % totalSlides;
-                        updateCarousel();
-                    });
-
-                    btnPrev.addEventListener('click', () => {
-                        currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-                        updateCarousel();
-                    });
-
-                    dots.forEach(dot => {
-                        dot.addEventListener('click', (e) => {
-                            currentIndex = parseInt(e.target.getAttribute('data-index'));
-                            updateCarousel();
-                        });
-                    });
-                    
-                    // Swipe responsivo Mobile
-                    let startX = 0;
-                    let endX = 0;
-                    const carouselContainer = document.getElementById('depoimentos-carousel');
-                    
-                    carouselContainer.addEventListener('touchstart', e => {
-                        startX = e.changedTouches[0].screenX;
-                    }, {passive: true});
-                    
-                    carouselContainer.addEventListener('touchend', e => {
-                        endX = e.changedTouches[0].screenX;
-                        handleSwipe();
-                    }, {passive: true});
-                    
-                    function handleSwipe() {
-                        if (endX < startX - 40) {
-                            btnNext.click(); // swipe left -> prox
-                        }
-                        if (endX > startX + 40) {
-                            btnPrev.click(); // swipe right -> ant
-                        }
-                    }
-                });
-            </script>
-        </div>
-    </section>
 
     <!-- SEÇÃO 9B: TRANSFORMAÇÃO -->
     <section class="section transform-section">
@@ -1788,8 +1645,7 @@
                             <p class="text-gold">Valor: R$ 67</p>
                             <hr style="border-color: rgba(255,255,255,0.1); margin: 15px 0;">
                             <p>A abordagem passo a passo de como fazer a abordagem inicial e fechar os primeiros 5
-                                pontos de
-                                venda.</p>
+                                pontos de venda.</p>
                             <ul style="font-size: 0.9rem; list-style: inside disc;">
                                 <li>Fazer a abordagem inicial</li>
                                 <li>Apresentar seu produto de forma profissional</li>
@@ -1836,8 +1692,7 @@
                             <hr style="border-color: rgba(255,255,255,0.1); margin: 15px 0;">
                             <p>Inclui: ✅ 2 modelos de rótulos editáveis (Canva)</p>
                             <p>Rótulo profissional traz diferenciação e te permite imediatamente cobrar mais. Seu cookie
-                                vai
-                                estar com cara de produto profissional desde o primeiro dia.</p>
+                                vai estar com cara de produto profissional desde o primeiro dia.</p>
                         </div>
                     </div>
                 </div>
@@ -1847,7 +1702,7 @@
             <div class="text-center">
                 <div class="price-box">
                     <p class="price-small">VALOR TOTAL: R$ 348</p>
-                    <p class="price-strike">VALOR OFICIAL: R$ 97,00</p>
+                    <p class="price-strike" style="font-size: 1.5rem; color: #fff; text-decoration: none;">VALOR OFICIAL: <span style="text-decoration: line-through; opacity: 0.8;">R$ 97,00</span></p>
                     <h3 class="text-gold" style="margin-top: 20px;">OFERTA DE PRÉ-LANÇAMENTO:</h3>
                     <div class="price-final">R$ 29,90<span style="font-size: 1.5rem; color: #fff; font-weight: normal;">
                             à vista</span></div>
@@ -1862,8 +1717,235 @@
         </div>
     </section>
 
+    <!-- NOVA SEÇÃO: GARANTIA -->
+    <section class="garantia-section" style="margin-top: 64px; margin-bottom: 64px;">
+        <div class="garantia-container">
+            <div>
+                <h2
+                    style="color: var(--bg-auth); font-size: 2.2rem; margin-bottom: 20px; text-align: left; font-family: var(--font-body); font-weight: bold;">
+                    Seu Risco é Zero — E Você Ainda Fica com o Produto!</h2>
+
+                <p style="color: var(--bg-auth); font-size: 1.15rem; margin-bottom: 24px; text-align: left;">
+                    Confiamos tanto no Sistema Cookie Recorrente que oferecemos algo que poucos têm coragem de fazer:
+                </p>
+                <p style="color: var(--bg-auth); font-size: 1.15rem; margin-bottom: 24px; text-align: left;">
+                    Garantia de 7 dias com direito de ficar com o Guia Baixado.
+                </p>
+                <p style="color: var(--bg-auth); font-size: 1.15rem; margin-bottom: 24px; text-align: left;">
+                    Se em 7 dias você achar que não é para você, <strong>devolvemos seu dinheiro e você mantém o Guia Rápido contigo, mesmo após o reembolso.</strong>
+                </p>
+                <p style="color: var(--bg-auth); font-size: 1.15rem; margin-bottom: 24px; text-align: left;">
+                    Por quê? Porque sabemos que você pode recuperar o investimento com apenas 2 unidades de Cookies 30D vendidos.
+                </p>
+                <p style="color: var(--bg-auth); font-size: 1.15rem; margin-bottom: 24px; text-align: left;">
+                    Essa é nossa aposta em você. 💚
+                </p>
+                <p style="color: var(--bg-auth); font-size: 1.15rem; margin-bottom: 40px; text-align: left;">
+                    Sem burocracia. <strong>Seu risco é ZERO!</strong>
+                </p>
+
+                <div class="garantia-cta-desktop">
+                    <a href="https://checkout.ticto.app/OD7A42825" target="_blank" class="btn btn-cta btn-large"
+                        style="padding: 20px 40px; width: 100%; max-width: 600px;">SIM! QUERO COMEÇAR COM RISCO ZERO
+                        🔒</a>
+                </div>
+            </div>
+            <div class="garantia-badge">
+                <div class="badge-stars">★★★</div>
+                <div class="badge-text-top">7</div>
+                <div class="badge-band">GARANTIA!</div>
+                <div class="badge-text-bottom">dias<br>ou seu dinheiro<br>de volta</div>
+            </div>
+            <div class="garantia-cta-mobile">
+                <a href="https://checkout.ticto.app/OD7A42825" target="_blank" class="btn btn-cta btn-large"
+                    style="width: 100%; text-align: center; font-size: 1.25rem; padding: 18px 20px;">SIM! QUERO COMEÇAR
+                    COM RISCO ZERO 🔒</a>
+            </div>
+        </div>
+    </section>
+    <!-- NOVA SEÇÃO: DEPOIMENTOS (CARROSSEL) -->
+    <style>
+        .carousel-wrapper {
+            position: relative;
+            max-width: 600px;
+            margin: 0 auto;
+            border-radius: 16px;
+            overflow: hidden;
+            touch-action: pan-y pinch-zoom; /* improves mobile scroll experience */
+        }
+        .carousel-track {
+            display: flex;
+            transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        .carousel-slide {
+            min-width: 100%;
+            padding: 8px 16px; /* give some room for shadow */
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+        }
+        .carousel-card {
+            background: #FFFFFF;
+            border: 1px solid #E5E7EB;
+            border-radius: 16px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            padding: 16px;
+            width: 100%;
+            max-width: 540px;
+        }
+        .carousel-card img {
+            width: 100%;
+            border-radius: 12px 12px 0 0;
+            display: block;
+            height: auto;
+        }
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+            z-index: 2;
+            transition: all 0.2s;
+            color: var(--bg-auth);
+            font-size: 1.2rem;
+        }
+        .carousel-btn:hover {
+            background: var(--bg-auth);
+            color: #fff;
+            border-color: var(--bg-auth);
+        }
+        .carousel-prev { left: 4px; }
+        .carousel-next { right: 4px; }
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 24px;
+        }
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ccc;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .dot.active {
+            background: var(--bg-auth);
+        }
+
+        @media (max-width: 768px) {
+            .depoimentos-section { padding-bottom: 80px !important; margin-bottom: 40px !important; }
+            .carousel-btn { width: 36px; height: 36px; font-size: 1rem; }
+            .carousel-slide { padding: 4px 8px; }
+        }
+    </style>
+    <section class="section depoimentos-section" style="background-color: #F0F2F5; padding: 80px 0 64px; margin-bottom: 32px; border-top: 1px solid #E1E5EA;">
+        <div class="container" style="max-width: 900px;">
+            <h2 class="text-center text-blue" style="font-family: sans-serif; font-weight: bold; font-size: 2rem; padding-bottom: 40px; margin-bottom: 0;">
+                Opiniões de Alunas sobre o Guia Rápido:
+            </h2>
+            
+            <div style="position: relative; max-width: 650px; margin: 0 auto;">
+                <div class="carousel-wrapper" id="depoimentos-carousel">
+                    <div class="carousel-track" id="carousel-track">
+                        <!-- Slide 1 -->
+                        <div class="carousel-slide">
+                            <div class="carousel-card">
+                                <img src="prova1.jpg" alt="Depoimento de aluna 1" loading="lazy">
+                            </div>
+                        </div>
+                        <!-- Slide 2 -->
+                        <div class="carousel-slide">
+                            <div class="carousel-card">
+                                <img src="prova2.jpg" alt="Depoimento de aluna 2" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Botoes -->
+                <button class="carousel-btn carousel-prev" id="btn-prev" aria-label="Anterior">&#10094;</button>
+                <button class="carousel-btn carousel-next" id="btn-next" aria-label="Próximo">&#10095;</button>
+            </div>
+            
+            <!-- Pontinhos -->
+            <div class="carousel-dots" id="carousel-dots">
+                <span class="dot active" data-index="0"></span>
+                <span class="dot" data-index="1"></span>
+            </div>
+            
+            <script>
+                document.addEventListener('DOMContentLoaded', () => {
+                    const track = document.getElementById('carousel-track');
+                    const dots = document.querySelectorAll('.dot');
+                    const btnPrev = document.getElementById('btn-prev');
+                    const btnNext = document.getElementById('btn-next');
+                    let currentIndex = 0;
+                    const totalSlides = 2;
+
+                    function updateCarousel() {
+                        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+                        dots.forEach((dot, index) => {
+                            dot.classList.toggle('active', index === currentIndex);
+                        });
+                    }
+
+                    btnNext.addEventListener('click', () => {
+                        currentIndex = (currentIndex + 1) % totalSlides;
+                        updateCarousel();
+                    });
+
+                    btnPrev.addEventListener('click', () => {
+                        currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+                        updateCarousel();
+                    });
+
+                    dots.forEach(dot => {
+                        dot.addEventListener('click', (e) => {
+                            currentIndex = parseInt(e.target.getAttribute('data-index'));
+                            updateCarousel();
+                        });
+                    });
+                    
+                    // Swipe responsivo Mobile
+                    let startX = 0;
+                    let endX = 0;
+                    const carouselContainer = document.getElementById('depoimentos-carousel');
+                    
+                    carouselContainer.addEventListener('touchstart', e => {
+                        startX = e.changedTouches[0].screenX;
+                    }, {passive: true});
+                    
+                    carouselContainer.addEventListener('touchend', e => {
+                        endX = e.changedTouches[0].screenX;
+                        handleSwipe();
+                    }, {passive: true});
+                    
+                    function handleSwipe() {
+                        if (endX < startX - 40) {
+                            btnNext.click(); // swipe left -> prox
+                        }
+                        if (endX > startX + 40) {
+                            btnPrev.click(); // swipe right -> ant
+                        }
+                    }
+                });
+            </script>
+        </div>
+    </section>
+
     <!-- SEÇÃO 13: AUTORIDADE -->
-    <section class="section bg-white">
+    <section class="section" style="background-color: #FFFDF8; color: var(--text-main);">
         <div class="container text-center">
             <h2 class="text-blue">QUEM SOU EU?</h2>
             <style>
@@ -2036,42 +2118,6 @@
         </div>
     </section>
 
-    <!-- NOVA SEÇÃO: GARANTIA -->
-    <section class="garantia-section" style="margin-top: 64px; margin-bottom: 64px;">
-        <div class="garantia-container">
-            <div>
-                <h2
-                    style="color: var(--bg-auth); font-size: 2.2rem; margin-bottom: 20px; text-align: left; font-family: var(--font-body); font-weight: bold;">
-                    Seu Risco é Zero!</h2>
-
-                <p style="color: var(--bg-auth); font-size: 1.15rem; margin-bottom: 24px; text-align: left;">
-                    Estamos tão confiantes no poder de transformação do Sistema Cookie Recorrente que oferecemos uma
-                    Garantia Incondicional de 7 dias.
-                </p>
-                <p style="color: var(--bg-auth); font-size: 1.15rem; margin-bottom: 40px; text-align: left;">
-                    Se por qualquer motivo você sentir que o método não é para você, basta nos enviar um e-mail dentro
-                    de 7 dias e devolvemos 100% do seu investimento. Sem perguntas. Sem burocracia.
-                </p>
-
-                <div class="garantia-cta-desktop">
-                    <a href="https://checkout.ticto.app/OD7A42825" target="_blank" class="btn btn-cta btn-large"
-                        style="padding: 20px 40px; width: 100%; max-width: 600px;">SIM! QUERO COMEÇAR COM RISCO ZERO
-                        🔒</a>
-                </div>
-            </div>
-            <div class="garantia-badge">
-                <div class="badge-stars">★★★</div>
-                <div class="badge-text-top">7</div>
-                <div class="badge-band">GARANTIA!</div>
-                <div class="badge-text-bottom">dias<br>ou seu dinheiro<br>de volta</div>
-            </div>
-            <div class="garantia-cta-mobile">
-                <a href="https://checkout.ticto.app/OD7A42825" target="_blank" class="btn btn-cta btn-large"
-                    style="width: 100%; text-align: center; font-size: 1.25rem; padding: 18px 20px;">SIM! QUERO COMEÇAR
-                    COM RISCO ZERO 🔒</a>
-            </div>
-        </div>
-    </section>
 
     <!-- SEÇÃO 14: FAQ (MOVIDA) -->
     <section class="section bg-white" id="faq"
