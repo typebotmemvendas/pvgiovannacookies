@@ -162,7 +162,7 @@
             font-weight: 900;
             text-transform: uppercase;
             border-radius: 50px;
-            transition: all 0.3s ease;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
             cursor: pointer;
             border: none;
@@ -173,6 +173,7 @@
             background-color: var(--col-cta);
             color: #fff;
             animation: pulse 2s infinite;
+            will-change: transform;
         }
 
         .btn-cta:hover {
@@ -351,8 +352,9 @@
             padding: 20px;
             border-radius: 8px;
             background: var(--bg-auth);
-            transition: transform 0.2s;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+            will-change: transform;
         }
 
         .flavor-card p {
@@ -425,6 +427,11 @@
             color: var(--col-cta);
             font-weight: bold;
             margin: 10px 0;
+        }
+
+        /* Featured math card (promoted from inline transform to avoid reflow) */
+        .math-card--featured {
+            transform: scale(1.05);
         }
 
         /* 11. Bônus */
@@ -772,7 +779,7 @@
             padding: 0 15px;
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.3s ease-out;
+            transition: max-height 0.3s ease-out, padding 0.3s ease-out;
             background: #fff;
         }
 
@@ -782,7 +789,9 @@
         }
 
         .faq-icon {
-            transition: transform 0.3s;
+            transition: transform 0.3s ease;
+            display: inline-block;
+            will-change: transform;
         }
 
         .faq-item.active .faq-icon {
@@ -819,9 +828,10 @@
             width: 80%;
             height: 60%;
             background: rgba(0, 0, 0, 0.5);
-            filter: blur(40px);
+            filter: blur(30px);
             z-index: -1;
             border-radius: 50%;
+            will-change: transform;
         }
 
         .device {
@@ -1152,8 +1162,7 @@
                     }
                 }
             </style>
-            <h1 class="hero-headline text-white"><span style="font-size: 0.9em;">CHEGA DE PRODUZIR TODO DIA E LUCRAR
-                    POUCO:</span><br><br>
+            <h1 class="hero-headline text-white"><span style="font-size: 0.9em;">CHEGA DE PRODUZIR E LUCRAR POUCO:</span><br><br>
                 APRENDA AS 10 RECEITAS DE <span style="color: var(--col-gold);">COOKIES ESTILO NOVA YORK</span><br>
                 COM <span style="color: var(--col-gold);">30 DIAS DE VALIDADE</span></h1>
 
@@ -1382,7 +1391,7 @@
 
 
     <!-- SEÇÃO 8: GRID 10 SABORES -->
-    <section class="section bg-white">
+    <section class="section bg-white" style="content-visibility: auto; contain-intrinsic-size: 0 2800px;">
         <div class="container">
             <h2 class="text-center text-blue">DÁ UMA OLHADA NOS 10 SABORES DE COOKIES AMERICANOS DE 30 DIAS QUE VOCÊ VAI DOMINAR:</h2>
             <p class="text-center">São os 10 cookies que MAIS VENDEM no Brasil!</p>
@@ -1483,7 +1492,7 @@
     </section>
 
     <!-- SEÇÃO 9B: TRANSFORMAÇÃO -->
-    <section class="section transform-section">
+    <section class="section transform-section" style="content-visibility: auto; contain-intrinsic-size: 0 2000px;">
         <div class="container">
             <h2 class="transform-title" style="margin-bottom: 64px;">Ao investir no Material do <strong style="color: var(--col-gold);">Cookie de 30
                     Dias</strong>, você não está comprando informação vazia, está investindo em se tornar uma
@@ -1624,7 +1633,7 @@
                     <p style="font-size: 0.9rem;">Trabalho: 6-8h/semana</p>
                 </div>
                 <!-- Médio -->
-                <div class="math-card" style="transform: scale(1.05); border-color: var(--col-cta);">
+                <div class="math-card math-card--featured" style="border-color: var(--col-cta);">
                     <h3 class="text-blue">CENÁRIO MÉDIO</h3>
                     <p>Ritmo Sustentável</p>
                     <hr style="border: 0; border-top: 1px solid #eee; margin: 15px 0;">
@@ -1654,7 +1663,7 @@
 
 
     <!-- SEÇÃO 10: BENEFÍCIOS EMPILHADOS & SEÇÃO 11: 3 BÔNUS & SEÇÃO 12: OFERTA -->
-    <section class="section bg-blue" id="oferta">
+    <section class="section bg-blue" id="oferta" style="content-visibility: auto; contain-intrinsic-size: 0 2400px;">
         <div class="container text-white">
             <h2 class="text-center text-gold">VOCÊ VAI RECEBER:</h2>
             <ul style="max-width: 600px; margin: 0 auto; font-size: 1.2rem;">
@@ -1949,60 +1958,66 @@
                     const btnNext = document.getElementById('btn-next');
                     let currentIndex = 0;
                     const totalSlides = 2;
+                    let rafPending = false;
 
+                    // Batch all DOM writes in a single rAF to avoid forced reflow
                     function updateCarousel() {
-                        track.style.transform = `translateX(-${currentIndex * 100}%)`;
-                        dots.forEach((dot, index) => {
-                            dot.classList.toggle('active', index === currentIndex);
+                        if (rafPending) return;
+                        rafPending = true;
+                        requestAnimationFrame(function() {
+                            rafPending = false;
+                            // Write: transform (compositor-only, no reflow)
+                            track.style.transform = 'translateX(-' + (currentIndex * 100) + '%)';
+                            // Write: class toggles (no layout read needed)
+                            dots.forEach(function(dot, index) {
+                                dot.classList.toggle('active', index === currentIndex);
+                            });
                         });
                     }
 
-                    btnNext.addEventListener('click', () => {
+                    btnNext.addEventListener('click', function() {
                         currentIndex = (currentIndex + 1) % totalSlides;
                         updateCarousel();
                     });
 
-                    btnPrev.addEventListener('click', () => {
+                    btnPrev.addEventListener('click', function() {
                         currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
                         updateCarousel();
                     });
 
-                    dots.forEach(dot => {
-                        dot.addEventListener('click', (e) => {
-                            currentIndex = parseInt(e.target.getAttribute('data-index'));
+                    dots.forEach(function(dot) {
+                        dot.addEventListener('click', function(e) {
+                            currentIndex = parseInt(e.currentTarget.getAttribute('data-index'), 10);
                             updateCarousel();
                         });
                     });
-                    
-                    // Swipe responsivo Mobile
-                    let startX = 0;
-                    let endX = 0;
-                    const carouselContainer = document.getElementById('depoimentos-carousel');
-                    
-                    carouselContainer.addEventListener('touchstart', e => {
+
+                    // Swipe responsivo Mobile — sem .click() sintético (evita reflow duplo)
+                    var startX = 0;
+                    var carouselContainer = document.getElementById('depoimentos-carousel');
+
+                    carouselContainer.addEventListener('touchstart', function(e) {
                         startX = e.changedTouches[0].screenX;
                     }, {passive: true});
-                    
-                    carouselContainer.addEventListener('touchend', e => {
-                        endX = e.changedTouches[0].screenX;
-                        handleSwipe();
+
+                    carouselContainer.addEventListener('touchend', function(e) {
+                        var endX = e.changedTouches[0].screenX;
+                        var delta = endX - startX;
+                        if (delta < -40) {
+                            currentIndex = (currentIndex + 1) % totalSlides;
+                            updateCarousel();
+                        } else if (delta > 40) {
+                            currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+                            updateCarousel();
+                        }
                     }, {passive: true});
-                    
-                    function handleSwipe() {
-                        if (endX < startX - 40) {
-                            btnNext.click(); // swipe left -> prox
-                        }
-                        if (endX > startX + 40) {
-                            btnPrev.click(); // swipe right -> ant
-                        }
-                    }
                 });
             </script>
         </div>
     </section>
 
     <!-- SEÇÃO 13: AUTORIDADE -->
-    <section class="section" style="background-color: #FFFDF8; color: var(--text-main);">
+    <section class="section" style="background-color: #FFFDF8; color: var(--text-main); content-visibility: auto; contain-intrinsic-size: 0 900px;">
         <div class="container text-center">
             <h2 class="text-blue">QUEM SOU EU?</h2>
             <style>
@@ -2275,7 +2290,7 @@
 
     <!-- SEÇÃO 14: FAQ (MOVIDA) -->
     <section class="section bg-white" id="faq"
-        style="background: #F0F2F5; border-top: 1px solid #E1E5EA; border-bottom: 1px solid #E1E5EA;">
+        style="background: #F0F2F5; border-top: 1px solid #E1E5EA; border-bottom: 1px solid #E1E5EA; content-visibility: auto; contain-intrinsic-size: 0 1400px;">
         <div class="container">
             <h2 class="text-center text-blue">PERGUNTAS FREQUENTES</h2>
             <div style="max-width: 800px; margin: 0 auto;">
@@ -2367,26 +2382,34 @@
     </footer>
 
     <script>
-        // FAQ Accordion
-        document.querySelectorAll('.faq-question').forEach(button => {
-            button.addEventListener('click', () => {
-                const item = button.parentElement;
-                item.classList.toggle('active');
-            });
-        });
-
-        // Smooth Scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
+        // FAQ Accordion — agrupamento de leituras antes de escritas (evita forced reflow)
+        document.querySelectorAll('.faq-question').forEach(function(button) {
+            button.addEventListener('click', function() {
+                // Leitura: capturar estado ANTES de qualquer escrita
+                var item = button.parentElement;
+                var isActive = item.classList.contains('active');
+                // Escrita: aplicar mudança de uma vez via rAF
+                requestAnimationFrame(function() {
+                    if (isActive) {
+                        item.classList.remove('active');
+                    } else {
+                        item.classList.add('active');
+                    }
                 });
             });
         });
 
-        // Lazy Loading (Native + Fallback for background images if needed in future)
-        // Note: Generic images are lightweight or placeholders in this version.
+        // Smooth Scroll — usa scrollTo nativo com behavior:smooth (sem leitura de geometria)
+        document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+            anchor.addEventListener('click', function(e) {
+                var targetId = this.getAttribute('href');
+                var target = document.querySelector(targetId);
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
     </script>
 
 
@@ -2398,46 +2421,57 @@
             function loadTrackers() {
                 if (fired) return;
                 fired = true;
-                
-                // Clarity
-                (function (c, l, a, r, i, t, y) {
-                    c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
-                    t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
-                    y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
-                })(window, document, "clarity", "script", "vpowi0tkr5");
 
-                // Meta Pixel
-                !function (f, b, e, v, n, t, s) {
-                    if (f.fbq) return; n = f.fbq = function () {
-                        n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments)
-                    };
-                    if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
-                    n.queue = []; t = b.createElement(e); t.async = !0;
-                    t.src = v; s = b.getElementsByTagName(e)[0];
-                    s.parentNode.insertBefore(t, s)
-                }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
-                fbq('init', '2075409333250960');
-                fbq('track', 'PageView');
-                
-                // NOSCRIPT fallback tracking
-                var noscript = document.createElement('noscript');
-                var img = document.createElement('img');
-                img.height = 1; img.width = 1; img.style.display = 'none';
-                img.src = 'https://www.facebook.com/tr?id=2075409333250960&ev=PageView&noscript=1';
-                noscript.appendChild(img);
-                document.body.appendChild(noscript);
+                // Agrupa todas as inserções de script num único rAF para evitar
+                // múltiplos reflows causados por mutações sequenciais no DOM
+                requestAnimationFrame(function() {
+                    var frag = document.createDocumentFragment();
 
-                // Wistia Player Delayed Load
-                var wistiaScript1 = document.createElement('script');
-                wistiaScript1.src = "https://fast.wistia.com/player.js";
-                document.body.appendChild(wistiaScript1);
-                
-                var wistiaScript2 = document.createElement('script');
-                wistiaScript2.src = "https://fast.wistia.com/embed/2xmkb2u75e.js";
-                wistiaScript2.type = "module";
-                document.body.appendChild(wistiaScript2);
+                    // Clarity
+                    (function (c, l, a, r, i, t, y) {
+                        c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+                        t = l.createElement(r); t.async = 1; t.src = 'https://www.clarity.ms/tag/' + i;
+                        frag.appendChild(t);
+                    })(window, document, 'clarity', 'script', 'vpowi0tkr5');
+
+                    // Meta Pixel
+                    if (!window.fbq) {
+                        var fbScript = document.createElement('script');
+                        fbScript.async = true;
+                        fbScript.src = 'https://connect.facebook.net/en_US/fbevents.js';
+                        frag.appendChild(fbScript);
+                        window._fbq = window.fbq = function() {
+                            (window.fbq.q = window.fbq.q || []).push(arguments);
+                        };
+                        window.fbq.q = []; window.fbq.loaded = true; window.fbq.version = '2.0';
+                        window.fbq.push = window.fbq;
+                    }
+
+                    // Wistia Player
+                    var w1 = document.createElement('script');
+                    w1.src = 'https://fast.wistia.com/player.js';
+                    w1.async = true;
+                    frag.appendChild(w1);
+
+                    var w2 = document.createElement('script');
+                    w2.src = 'https://fast.wistia.com/embed/2xmkb2u75e.js';
+                    w2.type = 'module';
+                    w2.async = true;
+                    frag.appendChild(w2);
+
+                    // Inserção única no DOM (1 reflow ao invés de 4)
+                    document.body.appendChild(frag);
+
+                    // Dispara fbq após scripts serem inseridos
+                    setTimeout(function() {
+                        if (window.fbq) {
+                            fbq('init', '2075409333250960');
+                            fbq('track', 'PageView');
+                        }
+                    }, 100);
+                });
             }
-            
+
             ['scroll', 'mousemove', 'touchstart'].forEach(function(e) {
                 document.addEventListener(e, loadTrackers, { passive: true });
             });
