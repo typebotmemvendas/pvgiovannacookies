@@ -1,4 +1,18 @@
 {
+  "rewrites": [
+    {
+      "source": "/favicon.ico",
+      "destination": "/logo.png"
+    },
+    {
+      "source": "/apple-touch-icon.png",
+      "destination": "/logo.png"
+    },
+    {
+      "source": "/apple-touch-icon-precomposed.png",
+      "destination": "/logo.png"
+    }
+  ],
   "headers": [
     {
       "source": "/",
