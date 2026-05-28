@@ -2385,7 +2385,7 @@
         (function () {
             function debugLog(runId, hypothesisId, location, message, data) {
                 // #region agent log
-                fetch('http://127.0.0.1:7618/ingest/9aee408d-3d65-43db-9870-4288cd6a1f0c',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'d427ba'},body:JSON.stringify({sessionId:'d427ba',runId:runId,hypothesisId:hypothesisId,location:location,message:message,data:data,timestamp:Date.now()})}).catch(()=>{});
+                fetch('http://127.0.0.1:7618/ingest/9aee408d-3d65-43db-9870-4288cd6a1f0c',{method:'POST',mode:'no-cors',keepalive:true,headers:{'Content-Type':'application/json','X-Debug-Session-Id':'d427ba'},body:JSON.stringify({sessionId:'d427ba',runId:runId,hypothesisId:hypothesisId,location:location,message:message,data:data,timestamp:Date.now()})}).catch(()=>{});
                 // #endregion
             }
 
