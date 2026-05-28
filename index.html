@@ -2382,6 +2382,60 @@
     </footer>
 
     <script>
+        (function () {
+            function debugLog(runId, hypothesisId, location, message, data) {
+                // #region agent log
+                fetch('http://127.0.0.1:7618/ingest/9aee408d-3d65-43db-9870-4288cd6a1f0c',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'d427ba'},body:JSON.stringify({sessionId:'d427ba',runId:runId,hypothesisId:hypothesisId,location:location,message:message,data:data,timestamp:Date.now()})}).catch(()=>{});
+                // #endregion
+            }
+
+            var runId = 'pre-fix-' + Date.now();
+            var flavorSection = document.querySelector('.flavors-grid');
+            var depSection = document.querySelector('.dep-grid');
+            var tracked = [];
+
+            if (flavorSection) {
+                tracked = tracked.concat(Array.prototype.slice.call(flavorSection.querySelectorAll('img')));
+            }
+            if (depSection) {
+                tracked = tracked.concat(Array.prototype.slice.call(depSection.querySelectorAll('img')));
+            }
+
+            debugLog(runId, 'H1', 'index.html:2389', 'Landing image debug init', {
+                href: location.href,
+                baseURI: document.baseURI,
+                imageCount: tracked.length
+            });
+
+            tracked.forEach(function (img) {
+                var originalSrc = img.getAttribute('src');
+                debugLog(runId, 'H2', 'index.html:2398', 'Track image candidate', {
+                    src: originalSrc,
+                    currentSrc: img.currentSrc || '',
+                    complete: !!img.complete,
+                    naturalWidth: img.naturalWidth || 0
+                });
+
+                img.addEventListener('load', function () {
+                    debugLog(runId, 'H3', 'index.html:2407', 'Image loaded', {
+                        src: img.getAttribute('src'),
+                        currentSrc: img.currentSrc || '',
+                        naturalWidth: img.naturalWidth || 0
+                    });
+                }, { once: true });
+
+                img.addEventListener('error', function () {
+                    debugLog(runId, 'H4', 'index.html:2416', 'Image failed', {
+                        src: img.getAttribute('src'),
+                        currentSrc: img.currentSrc || '',
+                        outerHTML: img.outerHTML.slice(0, 180)
+                    });
+                }, { once: true });
+            });
+        })();
+    </script>
+
+    <script>
         // FAQ Accordion — agrupamento de leituras antes de escritas (evita forced reflow)
         document.querySelectorAll('.faq-question').forEach(function(button) {
             button.addEventListener('click', function() {
