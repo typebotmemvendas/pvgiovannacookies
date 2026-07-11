@@ -26,8 +26,8 @@
     <script>
     document.addEventListener('DOMContentLoaded', function() {
       function capturarEEnviar() {
-        var nomeInput = document.querySelector('input#customer\\.name') || document.querySelector('input[id="customer.name"]');
-        var emailInput = document.querySelector('input#customer\\.electronic_contact') || document.querySelector('input[id="customer.electronic_contact"]');
+        var nomeInput = document.querySelector('input#customer\\.name') || document.getElementById('customer.name');
+        var emailInput = document.querySelector('input#customer\\.electronic_contact') || document.getElementById('customer.electronic_contact');
         var phoneInput = document.querySelector('input[type="tel"]');
         var cpfInput = document.querySelector('input[name="doc"]');
 
@@ -54,7 +54,7 @@
 
       // O formulário Ticto é renderizado dinamicamente, então aguarda os campos existirem
       function aguardar() {
-        if (document.querySelector('input#customer\\.name') || document.querySelector('input[id="customer.name"]')) {
+        if (document.querySelector('input#customer\\.name') || document.getElementById('customer.name')) {
           // Delay extra para o usuário já ter digitado algo
           setTimeout(capturarEEnviar, 1500);
         } else {
