@@ -23,53 +23,37 @@
     <!-- End Meta Pixel Code -->
 
     <!-- Meta Pixel InitiateCheckout Script -->
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      function capturarEEnviar() {
-        // CAPTURA DOS CAMPOS — usando os IDs confirmados na inspeção do checkout
-        // {{email_do_cliente}} → customer.electronic_contact
-        var nomeInput = document.querySelector('input#customer\\.name');
-        var emailInput = document.querySelector('input#customer\\.electronic_contact');
-        var phoneInput = document.querySelector('input[type="tel"]');
-        var cpfInput = document.querySelector('input[name="doc"]');
-
-        // Dados limpos: sem espaços extras, minúsculas, só números
-        var nome = nomeInput ? nomeInput.value.trim() : '';
-        var email = emailInput ? emailInput.value.trim().toLowerCase() : '';
-        var phone = phoneInput ? phoneInput.value.trim().replace(/[^0-9]/g, '') : '';
-        var cpf = cpfInput ? cpfInput.value.trim().replace(/[^0-9]/g, '') : '';
-
-        // Split do nome: {{nome_do_cliente}} → fn, {{sobrenome_do_cliente}} → ln
-        var partesNome = nome.split(' ');
-        var primeiroNome = partesNome[0] || '';
-        var sobrenome = partesNome.slice(1).join(' ') || '';
-
-        // Só dispara se tiver pelo menos email ou telefone preenchido
-        if (email || phone) {
-          fbq('track', 'InitiateCheckout', {
-            em: email,          // {{email_do_cliente}}
-            ph: phone,          // {{telefone_do_cliente}}
-            fn: primeiroNome,   // {{nome_do_cliente}} (primeira parte)
-            ln: sobrenome,      // {{sobrenome_do_cliente}} (resto)
-            external_id: cpf    // {{id_exclusivo}} (CPF como ID único)
-          });
-        }
-      }
-
-      // POLLING 500ms — checkout Ticto é SPA, aguarda o formulário carregar
-      function aguardarFormulario() {
-        var hasName = document.querySelector('input#customer\\.name');
-        var hasEmail = document.querySelector('input#customer\\.electronic_contact');
-        if (hasName && hasEmail) {
-          setTimeout(capturarEEnviar, 1500);
-        } else {
-          setTimeout(aguardarFormulario, 500);
-        }
-      }
-
-      aguardarFormulario();
-    });
-    </script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var disparado = false;
+  function enviarDados() {
+    if (disparado) return;
+    var email = document.querySelector('input#customer\\.electronic_contact')?.value.trim().toLowerCase() || '';
+    var nomeCompleto = document.querySelector('input#customer\\.name')?.value.trim() || '';
+    var telefone = document.querySelector('input[type="tel"]')?.value.trim().replace(/[^0-9]/g, '') || '';
+    var cpf = document.querySelector('input[name="doc"]')?.value.trim().replace(/[^0-9]/g, '') || '';
+    // Dispara apenas se houver e-mail válido ou telefone
+    if (email.includes('@') || telefone.length > 8) {
+      var partes = nomeCompleto.split(' ');
+      fbq('track', 'InitiateCheckout', {
+        em: email,
+        fn: partes[0] || '',
+        ln: partes.slice(1).join(' ') || '',
+        ph: telefone,
+        external_id: cpf,
+        country: 'br'
+      });
+      disparado = true;
+    }
+  }
+  // Escuta quando o usuário sai dos campos de preenchimento
+  document.addEventListener('focusout', function(e) {
+    if (e.target.matches('input#customer\\.electronic_contact') || e.target.matches('input[type="tel"]')) {
+      enviarDados();
+    }
+  });
+});
+</script>
     <title>Cookie Recorrente de 30 Dias - Sucesso na Confeitaria</title>
     <meta name="description"
         content="Aprenda a fazer o Cookie Estilo Nova York que dura 30 dias e transforme sua confeitaria com clientes recorrentes.">
