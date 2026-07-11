@@ -6,54 +6,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Meta Pixel Code -->
     <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '2075409333250960');
-    fbq('track', 'PageView');
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '2075409333250960');
+        fbq('track', 'PageView');
     </script>
     <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=2075409333250960&ev=PageView&noscript=1"
-    /></noscript>
+            src="https://www.facebook.com/tr?id=2075409333250960&ev=PageView&noscript=1" /></noscript>
     <!-- End Meta Pixel Code -->
 
     <!-- Meta Pixel InitiateCheckout Script -->
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  var disparado = false;
-  function enviarDados() {
-    if (disparado) return;
-    var email = document.querySelector('input#customer\\.electronic_contact')?.value.trim().toLowerCase() || '';
-    var nomeCompleto = document.querySelector('input#customer\\.name')?.value.trim() || '';
-    var telefone = document.querySelector('input[type="tel"]')?.value.trim().replace(/[^0-9]/g, '') || '';
-    var cpf = document.querySelector('input[name="doc"]')?.value.trim().replace(/[^0-9]/g, '') || '';
-    // Dispara apenas se houver e-mail válido ou telefone
-    if (email.includes('@') || telefone.length > 8) {
-      var partes = nomeCompleto.split(' ');
-      fbq('track', 'InitiateCheckout', {
-        em: email,
-        fn: partes[0] || '',
-        ln: partes.slice(1).join(' ') || '',
-        ph: telefone,
-        external_id: cpf,
-        country: 'br'
-      });
-      disparado = true;
-    }
-  }
-  // Escuta quando o usuário sai dos campos de preenchimento
-  document.addEventListener('focusout', function(e) {
-    if (e.target.matches('input#customer\\.electronic_contact') || e.target.matches('input[type="tel"]')) {
-      enviarDados();
-    }
-  });
-});
-</script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          var disparado = false;
+
+          function enviarDados() {
+            if (disparado) return;
+
+            var email = document.querySelector('input#customer\\.electronic_contact')?.value.trim().toLowerCase() || '';
+            var nomeCompleto = document.querySelector('input#customer\\.name')?.value.trim() || '';
+            var cpf = document.querySelector('input[name="doc"]')?.value.trim().replace(/[^0-9]/g, '') || '';
+
+            if (email.includes('@') && nomeCompleto.length > 3) {
+              var partes = nomeCompleto.split(' ');
+
+              fbq('track', 'InitiateCheckout', {
+                em: email,
+                fn: partes[0] || '',
+                ln: partes.slice(1).join(' ') || '',
+                external_id: cpf,
+                country: 'br'
+              });
+
+              disparado = true;
+              console.log('Meta IC com parâmetros enviado');
+            }
+          }
+
+          document.body.addEventListener('focusout', function(e) {
+            if (e.target.matches('input#customer\\.electronic_contact')) {
+              enviarDados();
+            }
+          }, true);
+        });
+    </script>
     <title>Cookie Recorrente de 30 Dias - Sucesso na Confeitaria</title>
     <meta name="description"
         content="Aprenda a fazer o Cookie Estilo Nova York que dura 30 dias e transforme sua confeitaria com clientes recorrentes.">
@@ -2613,7 +2618,8 @@ document.addEventListener('DOMContentLoaded', function() {
                             confiáveis do Brasil.</p>
                         <p>✅ <strong>Segurança de Nível Bancário:</strong> Seus dados são protegidos pela tecnologia
                             <strong>PCI DSS,</strong> o padrão mundial de segurança dos maiores bancos do mundo na hora
-                            de realizar pagamentos.</p>
+                            de realizar pagamentos.
+                        </p>
                         <p>Ou seja, os dados do seu cartão são <strong>criptografados</strong> tornando-os ilegíveis
                             para terceiros e garantindo uma compra totalmente blindada.</p>
                         <p>✅ <strong>Reputação Máxima:</strong> Com nota <strong>9.3 no Reclame Aqui</strong>, a Ticto é
