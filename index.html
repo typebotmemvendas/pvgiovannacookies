@@ -26,16 +26,20 @@
     <script>
     document.addEventListener('DOMContentLoaded', function() {
       function capturarEEnviar() {
-        var nomeInput = document.querySelector('input#customer\\.name') || document.getElementById('customer.name');
-        var emailInput = document.querySelector('input#customer\\.electronic_contact') || document.getElementById('customer.electronic_contact');
+        // CAPTURA DOS CAMPOS — usando os IDs confirmados na inspeção do checkout
+        // {{email_do_cliente}} → customer.electronic_contact
+        var nomeInput = document.querySelector('input#customer\\.name');
+        var emailInput = document.querySelector('input#customer\\.electronic_contact');
         var phoneInput = document.querySelector('input[type="tel"]');
         var cpfInput = document.querySelector('input[name="doc"]');
 
+        // Dados limpos: sem espaços extras, minúsculas, só números
         var nome = nomeInput ? nomeInput.value.trim() : '';
         var email = emailInput ? emailInput.value.trim().toLowerCase() : '';
         var phone = phoneInput ? phoneInput.value.trim().replace(/[^0-9]/g, '') : '';
         var cpf = cpfInput ? cpfInput.value.trim().replace(/[^0-9]/g, '') : '';
 
+        // Split do nome: {{nome_do_cliente}} → fn, {{sobrenome_do_cliente}} → ln
         var partesNome = nome.split(' ');
         var primeiroNome = partesNome[0] || '';
         var sobrenome = partesNome.slice(1).join(' ') || '';
@@ -43,26 +47,27 @@
         // Só dispara se tiver pelo menos email ou telefone preenchido
         if (email || phone) {
           fbq('track', 'InitiateCheckout', {
-            em: email,
-            fn: primeiroNome,
-            ln: sobrenome,
-            ph: phone,
-            external_id: cpf
+            em: email,          // {{email_do_cliente}}
+            ph: phone,          // {{telefone_do_cliente}}
+            fn: primeiroNome,   // {{nome_do_cliente}} (primeira parte)
+            ln: sobrenome,      // {{sobrenome_do_cliente}} (resto)
+            external_id: cpf    // {{id_exclusivo}} (CPF como ID único)
           });
         }
       }
 
-      // O formulário Ticto é renderizado dinamicamente, então aguarda os campos existirem
-      function aguardar() {
-        if (document.querySelector('input#customer\\.name') || document.getElementById('customer.name')) {
-          // Delay extra para o usuário já ter digitado algo
+      // POLLING 500ms — checkout Ticto é SPA, aguarda o formulário carregar
+      function aguardarFormulario() {
+        var hasName = document.querySelector('input#customer\\.name');
+        var hasEmail = document.querySelector('input#customer\\.electronic_contact');
+        if (hasName && hasEmail) {
           setTimeout(capturarEEnviar, 1500);
         } else {
-          setTimeout(aguardar, 500);
+          setTimeout(aguardarFormulario, 500);
         }
       }
 
-      aguardar();
+      aguardarFormulario();
     });
     </script>
     <title>Cookie Recorrente de 30 Dias - Sucesso na Confeitaria</title>
